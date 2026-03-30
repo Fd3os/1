@@ -1,0 +1,17 @@
+name: Move Files to Root
+on: workflow_dispatch
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Move files
+        run: |
+          shopt -s dotglob
+          mv 1/* .
+          rmdir 1
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Restructure repo for GitHub Pages deployment'
+          add: '.'
