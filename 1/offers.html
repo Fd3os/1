@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>العروض الخاصة - متجر الطب العالمي</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="offers.html" class="active">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي المحسن -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i>
+                <span>عروض محدودة</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">العروض الخاصة</span>
+                <span class="title-highlight">والحصرية</span>
+            </h1>
+            <p class="hero-description">
+                استفد من أفضل العروض والخصومات الحصرية على جميع الأجهزة الطبية لفترة محدودة
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number counter">50</div>
+                    <div class="stat-label">منتج بخصم</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">30</div>
+                    <div class="stat-label">خصم يصل إلى %</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">5</div>
+                    <div class="stat-label">أيام متبقية</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#special-offers" class="btn btn-primary btn-large">
+                    <i class="fas fa-tag"></i>
+                    <span>استكشف العروض</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-large">
+                    <i class="fas fa-phone"></i>
+                    <span>طلب عرض سعر</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العروض المحدودة -->
+    <section class="section" id="special-offers">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">عروض لفترة محدودة</span>
+                <h2 class="section-title">العروض الحالية</h2>
+                <p class="section-description">لا تفوت هذه الفرصة الذهبية</p>
+            </div>
+            
+            <!-- عداد الوقت -->
+            <div class="countdown-banner fade-in-up" data-delay="0.1s">
+                <div class="countdown-content">
+                    <h3>ينتهي العرض خلال:</h3>
+                    <div class="timer-display">
+                        <div class="timer-unit">
+                            <span id="days">05</span>
+                            <label>يوم</label>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="hours">12</span>
+                            <label>ساعة</label>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="minutes">30</span>
+                            <label>دقيقة</label>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="seconds">45</span>
+                            <label>ثانية</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown-visual">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </div>
+
+            <div class="offers-grid">
+                <div class="offer-card featured fade-in-up" data-delay="0.2s">
+                    <div class="offer-badge">خصم 20%</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <h3>خصم شامل</h3>
+                    <p>خصم 20% على جميع الأجهزة الطبية</p>
+                    <div class="offer-details">
+                        <span class="offer-price">بدايةً من 40,000 دينار</span>
+                        <span class="offer-original-price">50,000 دينار</span>
+                    </div>
+                    <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                </div>
+                
+                <div class="offer-card fade-in-up" data-delay="0.3s">
+                    <div class="offer-badge">شحن مجاني</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل مجاني</h3>
+                    <p>شحن مجاني لجميع الطلبات فوق 1,000,000 دينار</p>
+                    <div class="offer-details">
+                        <span class="offer-price">توفير يصل إلى 50,000 دينار</span>
+                    </div>
+                    <a href="products.html" class="btn btn-primary ripple-effect">اطلب الآن</a>
+                </div>
+
+                <div class="offer-card fade-in-up" data-delay="0.4s">
+                    <div class="offer-badge">عرض خاص</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>خدمة مجانية</h3>
+                    <p>صيانة مجانية لسنة كاملة مع كل جهاز</p>
+                    <div class="offer-details">
+                        <span class="offer-price">قيمة الخدمة 200,000 دينار</span>
+                    </div>
+                    <a href="products.html" class="btn btn-primary ripple-effect">اطلب جهازاً جديداً</a>
+                </div>
+
+                <div class="offer-card fade-in-up" data-delay="0.5s">
+                    <div class="offer-badge">عرض محدود</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>عروض أسبوعية</h3>
+                    <p>عروض جديدة كل أسبوع على أجهزة مختلفة</p>
+                    <div class="offer-details">
+                        <span class="offer-price">خصم يصل إلى 30%</span>
+                    </div>
+                    <a href="products.html" class="btn btn-primary ripple-effect">تابع العروض</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات المختارة -->
+    <section class="section featured-products-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">أفضل العروض</span>
+                <h2 class="section-title">منتجات مختارة بأسعار خاصة</h2>
+                <p class="section-description">منتجات مختارة بعناية مع أفضل العروض</p>
+            </div>
+            <div class="limited-products">
+                <div class="limited-grid">
+                    <div class="limited-product fade-in-up" data-delay="0.1s">
+                        <div class="limited-badge">50% خصم</div>
+                        <h4>جهاز الأشعة السينية</h4>
+                        <div class="price-comparison">
+                            <span class="original-price">1,800,000 دينار</span>
+                            <span class="discounted-price">900,000 دينار</span>
+                        </div>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> ضمان سنتين</span>
+                            <span><i class="fas fa-check"></i> تركيب مجاني</span>
+                            <span><i class="fas fa-check"></i> تدريب مجاني</span>
+                        </div>
+                        <a href="products.html" class="btn btn-primary ripple-effect">اطلب الآن</a>
+                    </div>
+                    
+                    <div class="limited-product fade-in-up" data-delay="0.2s">
+                        <div class="limited-badge">40% خصم</div>
+                        <h4>جهاز تخطيط القلب</h4>
+                        <div class="price-comparison">
+                            <span class="original-price">800,000 دينار</span>
+                            <span class="discounted-price">480,000 دينار</span>
+                        </div>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 12 قناة</span>
+                            <span><i class="fas fa-check"></i> شاشة ملونة</span>
+                            <span><i class="fas fa-check"></i> طابعة مدمجة</span>
+                        </div>
+                        <a href="products.html" class="btn btn-primary ripple-effect">اطلب الآن</a>
+                    </div>
+
+                    <div class="limited-product fade-in-up" data-delay="0.3s">
+                        <div class="limited-badge">35% خصم</div>
+                        <h4>جهاز الموجات فوق الصوتية</h4>
+                        <div class="price-comparison">
+                            <span class="original-price">2,500,000 دينار</span>
+                            <span class="discounted-price">1,625,000 دينار</span>
+                        </div>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 4D imaging</span>
+                            <span><i class="fas fa-check"></i> 3 مجسات</span>
+                            <span><i class="fas fa-check"></i> HD صورة</span>
+                        </div>
+                        <a href="products.html" class="btn btn-primary ripple-effect">اطلب الآن</a>
+                    </div>
+
+                    <div class="limited-product fade-in-up" data-delay="0.4s">
+                        <div class="limited-badge">30% خصم</div>
+                        <h4>جهاز المراقبة الحيوية</h4>
+                        <div class="price-comparison">
+                            <span class="original-price">600,000 دينار</span>
+                            <span class="discounted-price">420,000 دينار</span>
+                        </div>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> شاشة 12 بوصة</span>
+                            <span><i class="fas fa-check"></i> مراقبة 5 معاملات</span>
+                            <span><i class="fas fa-check"></i> إنذار صوتي</span>
+                        </div>
+                        <a href="products.html" class="btn btn-primary ripple-effect">اطلب الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العروض الموسمية -->
+    <section class="section seasonal-offers">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">مواسم خاصة</span>
+                <h2 class="section-title">العروض الموسمية</h2>
+                <p class="section-description">عروض مميزة في مناسبات مختلفة</p>
+            </div>
+            <div class="seasonal-grid">
+                <div class="seasonal-card fade-in-up" data-delay="0.1s">
+                    <div class="seasonal-header">
+                        <h3>عيد الفطر</h3>
+                        <div class="discount-badge">خصم 25%</div>
+                    </div>
+                    <p>عروض خاصة احتفالاً بعيد الفطر المبارك</p>
+                    <ul class="seasonal-features">
+                        <li>خصم 25% على أجهزة التصوير</li>
+                        <li>خصم 20% على أجهزة التشخيص</li>
+                        <li>شحن مجاني لجميع الطلبات</li>
+                        <li>هدايا مجانية مع كل طلب</li>
+                    </ul>
+                </div>
+                
+                <div class="seasonal-card fade-in-up" data-delay="0.2s">
+                    <div class="seasonal-header">
+                        <h3>العودة للمدارس</h3>
+                        <div class="discount-badge">خصم 15%</div>
+                    </div>
+                    <p>تجهيزات طبية للمؤسسات التعليمية</p>
+                    <ul class="seasonal-features">
+                        <li>خصم 15% على مجموعات المختبرات</li>
+                        <li>خصم 20% على أجهزة الطوارئ</li>
+                        <li>خطط دفع مرنة</li>
+                        <li>استشارات مجانية</li>
+                    </ul>
+                </div>
+
+                <div class="seasonal-card fade-in-up" data-delay="0.3s">
+                    <div class="seasonal-header">
+                        <h3>بداية العام الجديد</h3>
+                        <div class="discount-badge">خصم 30%</div>
+                    </div>
+                    <p>تحديث معداتك الطبية لعام جديد</p>
+                    <ul class="seasonal-features">
+                        <li>خصم 30% على أجهزة العلاج</li>
+                        <li>خصم 25% على أجهزة المختبرات</li>
+                        <li>ضمان ممتد لسنتين</li>
+                        <li>صيانة مجانية لسنة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="remember-me">
+              <span class="checkmark"></span>
+              تذكرني
+            </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+          </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="agree-terms" required>
+              <span class="checkmark"></span>
+              أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+            </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-user-plus"></i> إنشاء حساب
+          </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <!-- سيتم إضافة عناصر السلة هنا عبر JavaScript -->
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-credit-card"></i> إتمام الشراء
+      </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-chevron-left"></i> الأطباء</a></li>
+                        <li><a href="tips.html"><i class="fas fa-chevron-left"></i> النصائح</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="563f383039163b33323f35373a25223924337835393b">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // عداد الوقت للعروض المحدودة
+        function updateCountdown() {
+            // تاريخ انتهاء العرض (أسبوع من الآن)
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 5);
+            endDate.setHours(23, 59, 59, 999);
+            
+            const now = new Date().getTime();
+            const distance = endDate.getTime() - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+        
+        // تحديث العداد كل ثانية
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+
+</html>

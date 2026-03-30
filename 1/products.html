@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المنتجات - متجر الطب العالمي</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="filter-enhancements.css" />
+<style>
+/* إصلاحات زر التصفية كقائمة منسدلة */
+.filter-dropdown { position: relative; display: inline-block; }
+.filter-toggle { display: inline-flex; align-items: center; gap: 8px; }
+.filter-menu { position: absolute; top: calc(100% + 8px); right: 0; width: 360px; max-height: 70vh; overflow: auto; background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 8px 0; display: none; opacity: 0; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease; z-index: 1100; }
+.filter-menu.active { display: block; opacity: 1; transform: translateY(0); }
+.filter-menu .filter-menu-header { padding: 12px 16px 8px; border-bottom: 1px solid #f1f1f1; }
+.filter-menu .filter-menu-header h4 { margin: 0; font-size: 1rem; color: #333; }
+.filter-menu .filter-group { padding: 12px 16px; border-bottom: 1px solid #f1f1f1; }
+.filter-menu .filter-group:last-child { border-bottom: none; }
+.filter-menu .filter-group h5 { margin: 0 0 10px; font-size: .95rem; color: #444; }
+.checkbox-item { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+.checkbox-item input { width: 18px; height: 18px; }
+.checkbox-label { font-size: .95rem; color: #333; }
+.price-inputs { display: flex; align-items: center; gap: 10px; }
+.price-inputs input { flex: 1; padding: 8px 10px; border: 1px solid #e0e0e0; border-radius: 8px; }
+.filter-menu .filter-actions { display: flex; gap: 10px; padding: 12px 16px; }
+.filter-menu .btn { flex: 1; }
+/* تغطية الخلفية */
+.filter-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.35); opacity: 0; pointer-events: none; transition: opacity .25s ease; z-index: 1000; }
+.filter-overlay.active { opacity: 1; pointer-events: auto; }
+</style>
+<style>
+/* نافذة الدفع المنبثقة */
+.checkout-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
+.checkout-card { background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,.06); padding: 16px; }
+.checkout-card h3 { margin: 0 0 12px; font-size: 1.1rem; color: #1e1e2d; }
+.checkout-items { max-height: 50vh; overflow: auto; display: flex; flex-direction: column; gap: 10px; }
+.checkout-item { display: grid; grid-template-columns: 60px 1fr auto; align-items: center; gap: 10px; border: 1px solid #eee; border-radius: 10px; padding: 8px; background: #fafbff; }
+.checkout-item img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+.checkout-item h4 { margin: 0 0 6px; font-size: .95rem; color: #333; }
+.checkout-item .muted { color: #6c757d; font-size: .85rem; }
+.summary-row { display: flex; justify-content: space-between; padding: 6px 0; }
+.summary-row.total { font-weight: 800; color: #6a11cb; }
+.payment-form .form-group { margin-bottom: 12px; }
+.payment-form label { display: block; font-weight: 600; margin-bottom: 5px; color: #1e1e2d; }
+.payment-form input { width: 100%; padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 10px; font-family: 'Tajawal', sans-serif; }
+.payment-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pay-btn { width: 100%; padding: 12px; border: none; border-radius: 10px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(106, 17, 203, 0.25); }
+@media (max-width: 768px){ .checkout-grid{ grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html" class="active">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي المحسن -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>مجموعة شاملة</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">جميع المنتجات</span>
+                <span class="title-highlight">الطبية</span>
+            </h1>
+            <p class="hero-description">
+                تصفح مجموعتنا الكاملة من أحدث الأجهزة الطبية المتطورة بأسعار تنافسية وجودة عالمية مضمونة
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number counter">2000</div>
+                    <div class="stat-label">منتج متاح</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">500</div>
+                    <div class="stat-label">عميل راضٍ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">50</div>
+                    <div class="stat-label">نوع جهاز</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary btn-large">
+                    <i class="fas fa-grid"></i>
+                    <span>تصفح المنتجات</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="doctors.html" class="btn btn-outline btn-large">
+                    <i class="fas fa-user-md"></i>
+                    <span>الأطباء حسب التخصص</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم البحث والتصفية -->
+    <section class="section" id="products">
+        <div class="container">
+            
+                    
+                <!-- المحتوى الرئيسي -->
+                <main class="products-main">
+                    <!-- شريط الأدوات -->
+                    <div class="products-toolbar">
+                        <div class="toolbar-left">
+                            <!-- قائمة التصفية المنسدلة داخل الزر -->
+                            <div class="filter-dropdown">
+                                <button class="filter-toggle" id="filter-toggle" onclick="toggleFilterDropdown()">
+                                    <i class="fas fa-filter"></i>
+                                    <span>التصفية</span>
+                                    <i class="fas fa-chevron-down" id="filter-arrow" style="margin-right: 4px; font-size: 12px; transition: transform 0.3s ease;"></i>
+                                </button>
+                                <div class="filter-menu" id="filter-menu">
+                                    <div class="filter-menu-header">
+                                        <h4><i class="fas fa-sliders-h"></i> تصفية المنتجات</h4>
+                                    </div>
+                                    <!-- البحث -->
+                                    <div class="filter-group">
+                                        <h5><i class="fas fa-search"></i> البحث</h5>
+                                        <div class="search-box">
+                                            <i class="fas fa-search"></i>
+                                            <input type="text" id="product-search" placeholder="ابحث عن منتج..." oninput="filterProducts()" />
+                                        </div>
+                                    </div>
+                                    <!-- التصنيفات -->
+                                    <div class="filter-group">
+                                        <h5><i class="fas fa-th-large"></i> التصنيفات</h5>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="category" value="diagnostic" onchange="filterProducts()" />
+                                            <span class="checkbox-label">أجهزة التشخيص</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="category" value="imaging" onchange="filterProducts()" />
+                                            <span class="checkbox-label">أجهزة الأشعة</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="category" value="lab" onchange="filterProducts()" />
+                                            <span class="checkbox-label">أجهزة المختبر</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="category" value="treatment" onchange="filterProducts()" />
+                                            <span class="checkbox-label">أجهزة العلاج</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="category" value="monitoring" onchange="filterProducts()" />
+                                            <span class="checkbox-label">أجهزة المراقبة</span>
+                                        </label>
+                                    </div>
+                                    <!-- نطاق السعر -->
+                                    <div class="filter-group">
+                                        <h5><i class="fas fa-dollar-sign"></i> نطاق السعر</h5>
+                                        <div class="price-inputs">
+                                            <input type="number" id="min-price" placeholder="من" min="0" onchange="filterProducts()" />
+                                            <span>إلى</span>
+                                            <input type="number" id="max-price" placeholder="إلى" min="0" onchange="filterProducts()" />
+                                        </div>
+                                    </div>
+                                    <!-- أزرار الإجراءات -->
+                                    <div class="filter-actions">
+                                        <button class="btn btn-primary" onclick="applyFilters()"><i class="fas fa-check"></i> تطبيق</button>
+                                        <button class="btn btn-outline" onclick="resetFilters()"><i class="fas fa-redo"></i> إعادة تعيين</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- عداد النتائج -->
+                            <div class="results-count">
+                                <span id="results-count">عرض 1-12 من 200 منتج</span>
+                            </div>
+                            <!-- تغطية الخلفية لقائمة التصفية -->
+                            <div class="filter-overlay" id="filter-overlay" onclick="closeFilterDropdown()"></div>
+                        </div>
+                        <div class="toolbar-right">
+                            <div class="view-controls">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            <div class="sort-controls">
+                                <select id="sort-select">
+                                    <option value="default">الترتيب الافتراضي</option>
+                                    <option value="price-low">السعر: من الأقل للأعلى</option>
+                                    <option value="price-high">السعر: من الأعلى للأقل</option>
+                                    <option value="name">الاسم أبجدياً</option>
+                                    <option value="newest">الأحدث</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- شبكة المنتجات -->
+                    <div class="products-grid" id="products-grid">
+                        <!-- المنتجات ستتم إضافتها عبر JavaScript -->
+                        <div class="product-card fade-in-up" data-delay="0.1s">
+                            <div class="product-image">
+                                <img src="img/المستقبل.png" alt="جهاز الأشعة السينية" />
+                                <div class="product-badge">جديد</div>
+                                <div class="product-actions">
+                                    <button class="btn-add-cart" title="أضف للسلة">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn-wishlist" title="المفضلة">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn-quick-view" title="معاينة سريعة">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">جهاز الأشعة السينية الرقمي</h3>
+                                <p class="product-description">جهاز أشعة سينية رقمي عالي الدقة للتصوير الطبي</p>
+                                <div class="product-price">
+                                    <span class="current-price">1,800,000 دينار</span>
+                                    <span class="old-price">2,200,000 دينار</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(45)</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    أضف للسلة
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- المزيد من المنتجات -->
+                        <div class="product-card fade-in-up" data-delay="0.2s">
+                            <div class="product-image">
+                                <img src="img/المستقبل.png" alt="جهاز تخطيط القلب" />
+                                <div class="product-badge">عرض خاص</div>
+                                <div class="product-actions">
+                                    <button class="btn-add-cart" title="أضف للسلة">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn-wishlist" title="المفضلة">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn-quick-view" title="معاينة سريعة">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">جهاز تخطيط القلب ECG</h3>
+                                <p class="product-description">جهاز تخطيط القلب المحمول 12 قناة</p>
+                                <div class="product-price">
+                                    <span class="current-price">800,000 دينار</span>
+                                    <span class="old-price">1,000,000 دينار</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(32)</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    أضف للسلة
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="product-card fade-in-up" data-delay="0.3s">
+                            <div class="product-image">
+                                <img src="img/المستقبل.png" alt="جهاز الموجات فوق الصوتية" />
+                                <div class="product-actions">
+                                    <button class="btn-add-cart" title="أضف للسلة">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button class="btn-wishlist" title="المفضلة">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn-quick-view" title="معاينة سريعة">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">جهاز الموجات فوق الصوتية</h3>
+                                <p class="product-description">جهاز الموجات فوق الصوتية رباعي الأبعاد</p>
+                                <div class="product-price">
+                                    <span class="current-price">2,500,000 دينار</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(28)</span>
+                                </div>
+                                <button class="btn btn-primary add-to-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    أضف للسلة
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- المزيد من المنتجات... -->
+                    </div>
+
+                    <!-- شريط التحميل -->
+                    <div class="loading-more" id="loading-more" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>جاري تحميل المزيد من المنتجات...</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات المميزة -->
+    <section class="section featured-products-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">منتجات مختارة</span>
+                <h2 class="section-title">المنتجات المميزة</h2>
+                <p class="section-description">أحدث وأفضل الأجهزة الطبية من مجموعتنا الشاملة</p>
+            </div>
+            <div class="products-grid">
+                <!-- منتج مميز 1 -->
+                <div class="product-card featured fade-in-up" data-delay="0.1s">
+                    <div class="product-image">
+                        <img src="img/المستقبل.png" alt="جهاز الأشعة السينية" />
+                        <div class="product-badge featured">الأكثر مبيعاً</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" title="أضف للسلة">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-wishlist" title="المفضلة">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn-quick-view" title="معاينة سريعة">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جهاز الأشعة السينية الرقمي</h3>
+                        <p class="product-description">جهاز أشعة سينية رقمي عالي الدقة مع شاشة 32 بوصة</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> دقة 4K</span>
+                            <span><i class="fas fa-check"></i> ضمان سنتين</span>
+                            <span><i class="fas fa-check"></i> تركيب مجاني</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">1,800,000 دينار</span>
+                            <span class="old-price">2,200,000 دينار</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(45 تقييم)</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- منتج مميز 2 -->
+                <div class="product-card featured fade-in-up" data-delay="0.2s">
+                    <div class="product-image">
+                        <img src="img/المستقبل.png" alt="جهاز الموجات فوق الصوتية" />
+                        <div class="product-badge featured">عرض خاص</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" title="أضف للسلة">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-wishlist" title="المفضلة">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn-quick-view" title="معاينة سريعة">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جهاز الموجات فوق الصوتية 4D</h3>
+                        <p class="product-description">جهاز الموجات فوق الصوتية رباعي الأبعاد مع 4 مجسات</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> تصوير 4D</span>
+                            <span><i class="fas fa-check"></i> 4 مجسات</span>
+                            <span><i class="fas fa-check"></i> HD صور</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">2,500,000 دينار</span>
+                            <span class="old-price">3,000,000 دينار</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(32 تقييم)</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- منتج مميز 3 -->
+                <div class="product-card featured fade-in-up" data-delay="0.3s">
+                    <div class="product-image">
+                        <img src="img/المستقبل.png" alt="جهاز تخطيط القلب" />
+                        <div class="product-badge featured">جديد</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" title="أضف للسلة">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-wishlist" title="المفضلة">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn-quick-view" title="معاينة سريعة">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جهاز تخطيط القلب ECG</h3>
+                        <p class="product-description">جهاز تخطيط القلب المحمول 12 قناة مع شاشة ملونة</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 12 قناة</span>
+                            <span><i class="fas fa-check"></i> شاشة ملونة</span>
+                            <span><i class="fas fa-check"></i> طابعة مدمجة</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">800,000 دينار</span>
+                            <span class="old-price">1,000,000 دينار</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(28 تقييم)</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- منتج مميز 4 -->
+                <div class="product-card featured fade-in-up" data-delay="0.4s">
+                    <div class="product-image">
+                        <img src="img/المستقبل.png" alt="جهاز المراقبة الحيوية" />
+                        <div class="product-badge featured">موصى به</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" title="أضف للسلة">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-wishlist" title="المفضلة">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn-quick-view" title="معاينة سريعة">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جهاز المراقبة الحيوية</h3>
+                        <p class="product-description">جهاز مراقبة حيوية شامل مع شاشة 12 بوصة</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> شاشة 12 بوصة</span>
+                            <span><i class="fas fa-check"></i> 5 معاملات</span>
+                            <span><i class="fas fa-check"></i> إنذار صوتي</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">600,000 دينار</span>
+                            <span class="old-price">750,000 دينار</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(19 تقييم)</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- منتج مميز 5 -->
+                <div class="product-card featured fade-in-up" data-delay="0.5s">
+                    <div class="product-image">
+                        <img src="img/المستقبل.png" alt="جهاز تحليل الدم" />
+                        <div class="product-badge featured">تقنية جديدة</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" title="أضف للسلة">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-wishlist" title="المفضلة">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn-quick-view" title="معاينة سريعة">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جهاز تحليل الدم الكامل</h3>
+                        <p class="product-description">جهاز تحليل الدم التلقائي مع 18 معلمة</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 18 معلمة</span>
+                            <span><i class="fas fa-check"></i> تحليل سريع</span>
+                            <span><i class="fas fa-check"></i> دقة عالية</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">1,200,000 دينار</span>
+                            <span class="old-price">1,500,000 دينار</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(15 تقييم)</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- منتج مميز 6 -->
+                <div class="product-card featured fade-in-up" data-delay="0.6s">
+                    <div class="product-image">
+                        <img src="img/المستقبل.png" alt="جهاز التعقيم" />
+                        <div class="product-badge featured">ضروري</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" title="أضف للسلة">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-wishlist" title="المفضلة">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="btn-quick-view" title="معاينة سريعة">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جهاز التعقيم بالبخار</h3>
+                        <p class="product-description">جهاز تعقيم طبي بالبخار 40 لتر</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 40 لتر</span>
+                            <span><i class="fas fa-check"></i> تعقيم بالبخار</span>
+                            <span><i class="fas fa-check"></i> تحكم رقمي</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">450,000 دينار</span>
+                            <span class="old-price">580,000 دينار</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(22 تقييم)</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات حسب التخصص -->
+    <section class="section specialty-products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">المنتجات حسب التخصص</span>
+                <h2 class="section-title">منتجات لكل تخصص طبي</h2>
+                <p class="section-description">اختر من مجموعة متخصصة من الأجهزة الطبية</p>
+            </div>
+
+            <!-- تخصص الأشعة -->
+            <div class="specialty-section">
+                <div class="specialty-header">
+                    <div class="specialty-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3>أجهزة الأشعة</h3>
+                    <p>أجهزة تصوير طبي متطورة</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز الأشعة السينية" />
+                            <div class="product-badge">الأكثر طلباً</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز الأشعة السينية الرقمي</h4>
+                            <p>دقة عالية مع أقل جرعة إشعاع</p>
+                            <div class="product-price">1,800,000 دينار</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز الأشعة المقطعية" />
+                            <div class="product-badge">جديد</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز الأشعة المقطعية CT</h4>
+                            <p>تصوير ثلاثي الأبعاد عالي الدقة</p>
+                            <div class="product-price">4,500,000 دينار</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز الرنين المغناطيسي" />
+                            <div class="product-badge">مميز</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز الرنين المغناطيسي</h4>
+                            <p>تصوير بالرنين للمفاصل والأنسجة</p>
+                            <div class="product-price">6,200,000 دينار</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تخصص القلب -->
+            <div class="specialty-section">
+                <div class="specialty-header">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>أجهزة القلب</h3>
+                    <p>أجهزة مراقبة وعلاج القلب</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز تخطيط القلب" />
+                            <div class="product-badge">موصى به</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز تخطيط القلب ECG</h4>
+                            <p>12 قناة مع شاشة ملونة</p>
+                            <div class="product-price">800,000 دينار</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز هولتر" />
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز هولتر القلب</h4>
+                            <p>مراقبة 24 ساعة مع تحليل تلقائي</p>
+                            <div class="product-price">650,000 دينار</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز مزيل الرجفان" />
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز مزيل الرجفان</h4>
+                            <p>حماية متقدمة من الإنعاش</p>
+                            <div class="product-price">1,100,000 دينار</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تخصص المختبر -->
+            <div class="specialty-section">
+                <div class="specialty-header">
+                    <div class="specialty-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>أجهزة المختبر</h3>
+                    <p>أدوات تحليل وفحص مختبري</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز تحليل الدم" />
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز تحليل الدم الكامل</h4>
+                            <p>تحليل 18 معلمة بشكل تلقائي</p>
+                            <div class="product-price">1,200,000 دينار</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز تحليل الكيماويات" />
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز تحليل الكيماويات الحيوية</h4>
+                            <p>تحليل 40 نوع من الكيماويات</p>
+                            <div class="product-price">2,800,000 دينار</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="img/المستقبل.png" alt="جهاز تحليل البول" />
+                        </div>
+                        <div class="product-info">
+                            <h4>جهاز تحليل البول التلقائي</h4>
+                            <p>تحليل 14 معلمة مع طباعة النتائج</p>
+                            <div class="product-price">350,000 دينار</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="remember-me">
+              <span class="checkmark"></span>
+              تذكرني
+            </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+          </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="agree-terms" required>
+              <span class="checkmark"></span>
+              أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+            </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-user-plus"></i> إنشاء حساب
+          </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <!-- سيتم إضافة عناصر السلة هنا عبر JavaScript -->
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-credit-card"></i> إتمام الشراء
+      </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- نافذة المنتج المنبثقة -->
+    <div class="product-modal" id="product-modal">
+        <div class="product-modal-content">
+            <div class="product-modal-header">
+                <h3 class="product-modal-title" id="modal-product-title">عنوان المنتج</h3>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="product-modal-body">
+                <div class="product-modal-image">
+                    <img id="modal-product-image" src="" alt="صورة المنتج">
+                </div>
+                <div class="product-modal-info">
+                    <div class="rating" style="margin-bottom: 10px;">
+                        <div class="stars" id="modal-product-rating"></div>
+                        <span class="rating-count" id="modal-rating-count"></span>
+                    </div>
+                    <div class="product-modal-price" id="modal-product-price"></div>
+                    <div class="product-modal-description" id="modal-product-description" style="margin: 15px 0;"></div>
+                    <div class="product-modal-features">
+                        <h4>المميزات الرئيسية:</h4>
+                        <ul id="modal-product-features"></ul>
+                    </div>
+                    <div class="product-modal-actions">
+                        <button class="btn btn-primary" id="modal-add-to-cart"><i class="fas fa-cart-plus"></i> إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة الدفع المنبثقة -->
+    <div class="product-modal" id="checkout-modal">
+        <div class="product-modal-content">
+            <div class="product-modal-header">
+                <h3 class="product-modal-title">إتمام الدفع</h3>
+                <button class="close-modal" id="close-checkout">&times;</button>
+            </div>
+            <div class="product-modal-body">
+                <div class="checkout-grid" style="width:100%">
+                    <div class="checkout-card">
+                        <h3><i class="fas fa-shopping-basket"></i> ملخص السلة</h3>
+                        <div id="checkout-items" class="checkout-items"></div>
+                    </div>
+                    <div class="checkout-card">
+                        <h3><i class="fas fa-credit-card"></i> بيانات البطاقة</h3>
+                        <div class="summary" style="margin-bottom: 10px;">
+                            <div class="summary-row"><span>عدد العناصر</span><strong id="checkout-items-count">0</strong></div>
+                            <div class="summary-row total"><span>المجموع</span><strong id="checkout-total">0 دينار</strong></div>
+                        </div>
+                        <form id="checkout-form" class="payment-form">
+                            <div class="form-group">
+                                <label for="co-card-name">اسم حامل البطاقة</label>
+                                <input type="text" id="co-card-name" placeholder="مثال: علي محمد" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="co-card-number">رقم البطاقة</label>
+                                <input type="text" id="co-card-number" inputmode="numeric" maxlength="19" placeholder="#### #### #### ####" required />
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="co-card-expiry">تاريخ الانتهاء</label>
+                                    <input type="text" id="co-card-expiry" placeholder="MM/YY" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="co-card-cvv">CVV</label>
+                                    <input type="password" id="co-card-cvv" inputmode="numeric" maxlength="4" placeholder="***" required />
+                                </div>
+                            </div>
+                            <button type="submit" class="pay-btn" id="confirm-payment"><i class="fas fa-lock"></i> ادفع الآن</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-chevron-left"></i> الأطباء</a></li>
+                        <li><a href="tips.html"><i class="fas fa-chevron-left"></i> النصائح</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb82858d84ab868e8f82888a87989f84998ec5888486">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // وظائف خاصة بصفحة المنتجات
+        document.addEventListener('DOMContentLoaded', function() {
+            // البحث في المنتجات
+            const searchInput = document.getElementById('product-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    filterProducts();
+                });
+            }
+
+            // التصفية حسب التصنيف
+            document.querySelectorAll('input[name="category"]').forEach(checkbox => {
+                checkbox.addEventListener('change', filterProducts);
+            });
+
+            // التصفية حسب العلامة التجارية
+            document.querySelectorAll('input[name="brand"]').forEach(checkbox => {
+                checkbox.addEventListener('change', filterProducts);
+            });
+
+            // تصفية حسب السعر
+            const minPriceInput = document.getElementById('min-price');
+            const maxPriceInput = document.getElementById('max-price');
+            
+            if (minPriceInput && maxPriceInput) {
+                [minPriceInput, maxPriceInput].forEach(input => {
+                    input.addEventListener('input', filterProducts);
+                });
+            }
+
+            // التحكم في العرض (شبكة/قائمة)
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const view = this.getAttribute('data-view');
+                    const productsGrid = document.getElementById('products-grid');
+                    
+                    if (view === 'list') {
+                        productsGrid.classList.add('list-view');
+                    } else {
+                        productsGrid.classList.remove('list-view');
+                    }
+                });
+            });
+
+            // إضافة المنتجات للسلة
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    const productPrice = productCard.querySelector('.current-price').textContent;
+                    
+                    showToast(`تم إضافة "${productTitle}" للسلة`, 'success');
+                    
+                    // هنا يمكن إضافة منطق إضافة المنتج للسلة
+                });
+            });
+
+            // دالة فتح/إغلاق الشريط الجانبي
+            function toggleFilterSidebar() {
+                const sidebar = document.getElementById('filter-sidebar');
+                const overlay = document.getElementById('overlay');
+                
+                if (sidebar && overlay) {
+                    const isActive = sidebar.classList.contains('active');
+                    
+                    if (isActive) {
+                        sidebar.classList.remove('active');
+                        overlay.classList.remove('active');
+                    } else {
+                        sidebar.classList.add('active');
+                        overlay.classList.add('active');
+                    }
+                }
+            }
+            
+            // إغلاق الشريط عند الضغط على التغطية
+            document.getElementById('overlay').addEventListener('click', function() {
+                const sidebar = document.getElementById('filter-sidebar');
+                const overlay = document.getElementById('overlay');
+                
+                if (sidebar && overlay) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+            
+            // إغلاق الشريط عند الضغط على زر الإغلاق
+            const closeSidebar = document.getElementById('close-sidebar');
+            if (closeSidebar) {
+                closeSidebar.addEventListener('click', toggleFilterSidebar);
+            }
+            
+            // إغلاق الشريط عند الضغط على ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const sidebar = document.getElementById('filter-sidebar');
+                    const overlay = document.getElementById('overlay');
+                    
+                    if (sidebar && overlay) {
+                        sidebar.classList.remove('active');
+                        overlay.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // دالة تصفية المنتجات
+        function filterProducts() {
+            const productCards = document.querySelectorAll('.product-card');
+            const searchTerm = document.getElementById('product-search')?.value.toLowerCase() || '';
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(cb => cb.value);
+            const minPrice = parseInt(document.getElementById('min-price')?.value) || 0;
+            const maxPrice = parseInt(document.getElementById('max-price')?.value) || Infinity;
+            
+            let visibleCount = 0;
+            
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const priceText = card.querySelector('.current-price').textContent;
+                const price = parseInt(priceText.replace(/[^\d]/g, ''));
+                
+                let showCard = true;
+                
+                // البحث النصي
+                if (searchTerm && !title.includes(searchTerm)) {
+                    showCard = false;
+                }
+                
+                // تصفية السعر
+                if (price < minPrice || price > maxPrice) {
+                    showCard = false;
+                }
+                
+                // عرض/إخفاء البطاقة
+                if (showCard) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // تحديث عدد النتائج
+            const resultsCount = document.getElementById('results-count');
+            if (resultsCount) {
+                resultsCount.textContent = `عرض ${visibleCount} من ${productCards.length} منتج`;
+            }
+        }
+
+        // وظائف زر التصفية المنسدلة
+        let isFilterOpen = false;
+        function toggleFilterDropdown() {
+            const menu = document.getElementById('filter-menu');
+            const overlay = document.getElementById('filter-overlay');
+            const arrow = document.getElementById('filter-arrow');
+            const toggle = document.getElementById('filter-toggle');
+            isFilterOpen = !isFilterOpen;
+            if (isFilterOpen) {
+                if (menu) menu.classList.add('active');
+                if (overlay) overlay.classList.add('active');
+                if (toggle) toggle.classList.add('active');
+                if (arrow && arrow.style) { arrow.style.transform = 'rotate(180deg)'; }
+            } else {
+                if (menu) menu.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
+                if (toggle) toggle.classList.remove('active');
+                if (arrow && arrow.style) { arrow.style.transform = 'rotate(0deg)'; }
+            }
+        }
+        function closeFilterDropdown() {
+            if (!isFilterOpen) return;
+            toggleFilterDropdown();
+        }
+        // إغلاق عند الضغط خارج القائمة
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('filter-menu');
+            const toggle = document.getElementById('filter-toggle');
+            if (!menu || !toggle) return;
+            if (isFilterOpen && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                closeFilterDropdown();
+            }
+        });
+        // إغلاق عند الضغط على زر ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isFilterOpen) {
+                closeFilterDropdown();
+            }
+        });
+        // تطبيق/إعادة تعيين الفلاتر
+        function applyFilters() {
+            filterProducts();
+            closeFilterDropdown();
+            if (typeof showToast === 'function') showToast('تم تطبيق الفلاتر', 'success');
+        }
+        function resetFilters() {
+            const search = document.getElementById('product-search');
+            if (search) search.value = '';
+            document.querySelectorAll('input[name="category"]').forEach(cb => cb.checked = false);
+            const minP = document.getElementById('min-price');
+            const maxP = document.getElementById('max-price');
+            if (minP) minP.value = '';
+            if (maxP) maxP.value = '';
+            filterProducts();
+            closeFilterDropdown();
+            if (typeof showToast === 'function') showToast('تم إعادة تعيين الفلاتر', 'success');
+        }
+    </script>
+<script>
+// تهيئة نافذة الدفع المنبثقة واختصار التوجيه
+(function(){
+  const overlay = document.getElementById('overlay');
+  const checkoutBtn = document.getElementById('checkout-btn');
+  const checkoutModal = document.getElementById('checkout-modal');
+  const closeCheckout = document.getElementById('close-checkout');
+  const itemsEl = document.getElementById('checkout-items');
+  const itemsCountEl = document.getElementById('checkout-items-count');
+  const totalEl = document.getElementById('checkout-total');
+  const form = document.getElementById('checkout-form');
+  const nameEl = document.getElementById('co-card-name');
+  const numberEl = document.getElementById('co-card-number');
+  const expiryEl = document.getElementById('co-card-expiry');
+  const cvvEl = document.getElementById('co-card-cvv');
+
+  // جلب السلة: استخدم window.cart إن وُجد، وإلا من التخزين المحلي
+  function getCart(){
+    let list = [];
+    try {
+      if (Array.isArray(window.cart) && window.cart.length) return window.cart;
+      const saved = JSON.parse(localStorage.getItem('cart')||'[]');
+      if (Array.isArray(saved)) list = saved;
+    } catch{}
+    return list;
+  }
+
+  function formatPrice(n){ try { return new Intl.NumberFormat('ar-IQ').format(n);} catch { return n; } }
+  function formatCardNumber(v){ return v.replace(/[^\d]/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim(); }
+
+  function renderCheckout(){
+    const list = getCart();
+    itemsEl.innerHTML = '';
+    if (!list.length){
+      itemsEl.innerHTML = '<div class="empty" style="text-align:center; color:#6c757d; padding:20px 0"><i class="fas fa-box-open" style="font-size:2rem; margin-bottom:8px;"></i><div>السلة فارغة</div></div>';
+      itemsCountEl.textContent = '0';
+      totalEl.textContent = '0 دينار';
+      return;
+    }
+    let c = 0, t = 0;
+    list.forEach(it => {
+      const q = it.quantity || 1;
+      c += q; t += (it.price||0) * q;
+      const row = document.createElement('div');
+      row.className = 'checkout-item';
+      row.innerHTML = `
+        <img src="${it.image||''}" alt="${it.name||''}" />
+        <div><h4>${it.name||''}</h4><div class="muted">الكمية: ${q}</div></div>
+        <div style="font-weight:700; color:#6a11cb;">${formatPrice(it.price||0)} دينار</div>
+      `;
+      itemsEl.appendChild(row);
+    });
+    itemsCountEl.textContent = c;
+    totalEl.textContent = formatPrice(t) + ' دينار';
+  }
+
+  function openCheckout(){
+    const list = getCart();
+    if (!list.length){ if (window.showToast) showToast('السلة فارغة', 'error'); return; }
+    // مزامنة النسخة العامة لضمان التوحيد
+    try { window.cart = list; } catch{}
+    renderCheckout();
+    checkoutModal.classList.add('active');
+    overlay.classList.add('active');
+  }
+  function closeCheckoutModal(){ checkoutModal.classList.remove('active'); overlay.classList.remove('active'); }
+
+  // تنسيق الحقول
+  numberEl && numberEl.addEventListener('input', function(){ this.value = formatCardNumber(this.value); });
+  expiryEl && expiryEl.addEventListener('input', function(){ this.value = this.value.replace(/[^\d/]/g,'').slice(0,5); });
+  cvvEl && cvvEl.addEventListener('input', function(){ this.value = this.value.replace(/[^\d]/g,'').slice(0,4); });
+
+  // اعتراض زر إتمام الشراء (قبل أي مستمع آخر)
+  if (checkoutBtn){
+    checkoutBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopImmediatePropagation(); openCheckout(); }, true);
+  }
+  if (closeCheckout){ closeCheckout.addEventListener('click', closeCheckoutModal); }
+  // إغلاق عند الضغط على ESC
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape'){ closeCheckoutModal(); } });
+
+  // إرسال الدفع
+  if (form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = nameEl.value.trim();
+      const number = numberEl.value.replace(/\s/g,'');
+      const expiry = expiryEl.value.trim();
+      const cvv = cvvEl.value.trim();
+      if (!name || number.length < 12 || !/^\d{2}\/\d{2}$/.test(expiry) || cvv.length < 3){
+        alert('يرجى إدخال بيانات بطاقة صحيحة');
+        return;
+      }
+      // نجاح الدفع
+      try { localStorage.setItem('cart', JSON.stringify([])); } catch {}
+      if (window.showToast) showToast('تم الدفع بنجاح! شكراً لك', 'success');
+      try { cart = []; window.cart = cart; } catch(e) { window.cart = []; }
+      if (window.updateCartDisplay) updateCartDisplay();
+      closeCheckoutModal();
+    });
+  }
+})();
+</script>
+</body>
+
+</html>

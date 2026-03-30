@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إتمام الدفع - متجر الطب</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body { background: #f7f9fc; }
+    .checkout-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    .checkout-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,.06); padding: 20px; }
+    .card h2 { margin: 0 0 15px; font-size: 1.3rem; color: #1e1e2d; }
+    .order-items { display: flex; flex-direction: column; gap: 12px; max-height: 55vh; overflow: auto; }
+    .order-item { display: grid; grid-template-columns: 60px 1fr auto; align-items: center; gap: 12px; padding: 10px; border: 1px solid #eee; border-radius: 10px; background: #fafbff; }
+    .order-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+    .order-item h4 { margin: 0 0 6px; font-size: 1rem; color: #333; }
+    .order-item .muted { color: #6c757d; font-size: .85rem; }
+    .order-item .price { font-weight: 700; color: #6a11cb; }
+    .summary { display: flex; flex-direction: column; gap: 10px; }
+    .summary-row { display: flex; justify-content: space-between; align-items: center; color: #333; }
+    .summary-row.total { font-size: 1.1rem; font-weight: 800; color: #6a11cb; }
+    .payment-form .form-group { margin-bottom: 14px; }
+    .payment-form label { display: block; font-weight: 600; margin-bottom: 6px; color: #1e1e2d; }
+    .payment-form input { width: 100%; padding: 12px 14px; border: 1px solid #e0e0e0; border-radius: 10px; font-family: 'Tajawal', sans-serif; }
+    .payment-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pay-btn { width: 100%; padding: 14px; border: none; border-radius: 10px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(106, 17, 203, 0.25); transition: transform .2s ease; }
+    .pay-btn:hover { transform: translateY(-2px); }
+    .empty { text-align: center; padding: 40px 0; color: #6c757d; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #6a11cb; font-weight: 600; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <a class="back-link" href="products.html"><i class="fas fa-arrow-right"></i> العودة للمنتجات</a>
+    <div class="checkout-grid">
+      <div class="card">
+        <h2><i class="fas fa-shopping-basket"></i> ملخص السلة</h2>
+        <div id="order-items" class="order-items"></div>
+      </div>
+      <div class="card">
+        <h2><i class="fas fa-credit-card"></i> بيانات البطاقة</h2>
+        <div class="summary" style="margin-bottom: 15px;">
+          <div class="summary-row"><span>عدد العناصر</span><strong id="items-count">0</strong></div>
+          <div class="summary-row"><span>المجموع</span><strong id="order-total">0 دينار</strong></div>
+        </div>
+        <form id="payment-form" class="payment-form">
+          <div class="form-group">
+            <label for="card-name">اسم حامل البطاقة</label>
+            <input type="text" id="card-name" placeholder="مثال: علي محمد" required />
+          </div>
+          <div class="form-group">
+            <label for="card-number">رقم البطاقة</label>
+            <input type="text" id="card-number" inputmode="numeric" maxlength="19" placeholder="#### #### #### ####" required />
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="card-expiry">تاريخ الانتهاء</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" required />
+            </div>
+            <div class="form-group">
+              <label for="card-cvv">CVV</label>
+              <input type="password" id="card-cvv" inputmode="numeric" maxlength="4" placeholder="***" required />
+            </div>
+          </div>
+          <button type="submit" class="pay-btn"><i class="fas fa-lock"></i> ادفع الآن</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // تنسيق رقم البطاقة البسيط
+    function formatCardNumber(value) {
+      return value.replace(/[^\d]/g, '').slice(0,16).replace(/(.{4})/g, '$1 ').trim();
+    }
+
+    // تحميل السلة من التخزين المحلي
+    function loadCart() {
+      try { return JSON.parse(localStorage.getItem('cart') || '[]'); } catch { return []; }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function formatPrice(n) {
+      try { return new Intl.NumberFormat('ar-IQ').format(n); } catch { return n; }
+    }
+
+    const orderItemsEl = document.getElementById('order-items');
+    const itemsCountEl = document.getElementById('items-count');
+    const orderTotalEl = document.getElementById('order-total');
+
+    function renderOrder() {
+      const cart = loadCart();
+      orderItemsEl.innerHTML = '';
+      if (!cart.length) {
+        orderItemsEl.innerHTML = '<div class="empty"><i class="fas fa-box-open" style="font-size:2rem; margin-bottom:8px;"></i><div>السلة فارغة</div></div>';
+        itemsCountEl.textContent = '0';
+        orderTotalEl.textContent = '0 دينار';
+        return;
+      }
+      let itemsCount = 0; let total = 0;
+      cart.forEach(item => {
+        itemsCount += item.quantity || 1;
+        total += (item.price || 0) * (item.quantity || 1);
+        const row = document.createElement('div');
+        row.className = 'order-item';
+        row.innerHTML = `
+          <img src="${item.image || ''}" alt="${item.name || ''}" />
+          <div>
+            <h4>${item.name || ''}</h4>
+            <div class="muted">الكمية: ${item.quantity || 1}</div>
+          </div>
+          <div class="price">${formatPrice(item.price || 0)} دينار</div>
+        `;
+        orderItemsEl.appendChild(row);
+      });
+      itemsCountEl.textContent = itemsCount;
+      orderTotalEl.textContent = formatPrice(total) + ' دينار';
+    }
+
+    // أحداث النموذج
+    document.getElementById('card-number').addEventListener('input', function(){ this.value = formatCardNumber(this.value); });
+    document.getElementById('card-expiry').addEventListener('input', function(){ this.value = this.value.replace(/[^\d/]/g,'').slice(0,5); });
+    document.getElementById('card-cvv').addEventListener('input', function(){ this.value = this.value.replace(/[^\d]/g,'').slice(0,4); });
+
+    document.getElementById('payment-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const cart = loadCart();
+      if (!cart.length) {
+        alert('السلة فارغة');
+        return;
+      }
+      // تحقق بسيط
+      const name = document.getElementById('card-name').value.trim();
+      const number = document.getElementById('card-number').value.replace(/\s/g,'');
+      const expiry = document.getElementById('card-expiry').value.trim();
+      const cvv = document.getElementById('card-cvv').value.trim();
+      if (!name || number.length < 12 || !/^\d{2}\/\d{2}$/.test(expiry) || cvv.length < 3) {
+        alert('يرجى إدخال بيانات بطاقة صحيحة');
+        return;
+      }
+      // محاكاة الدفع
+      alert('تمت عملية الدفع بنجاح! شكراً لتسوقك.');
+      saveCart([]);
+      window.location.href = 'products.html';
+    });
+
+    // بدء
+    renderOrder();
+  </script>
+</body>
+</html>

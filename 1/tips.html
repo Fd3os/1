@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>النصائح والأدلة - متجر الطب العالمي</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html" class="active">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-lightbulb"></i>
+                <span>نصائح وأدلة</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">أدلة ونصائح</span>
+                <span class="title-highlight">متخصصة</span>
+            </h1>
+            <p class="hero-description">
+                دليل شامل للاستخدام الآمن والصيانة السليمة للأجهزة الطبية مع أحدث النصائح والتوجيهات المهنية
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number counter">50</div>
+                    <div class="stat-label">دليل ونصيحة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">15</div>
+                    <div class="stat-label">تخصص طبي</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">100</div>
+                    <div class="stat-label">ساعة محتوى</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#tips-grid" class="btn btn-primary btn-large">
+                    <i class="fas fa-book"></i>
+                    <span>تصفح النصائح</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-large">
+                    <i class="fas fa-phone"></i>
+                    <span>استشارة مجانية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم النصائح والأدلة -->
+    <section class="section" id="tips-grid">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">أدلة متخصصة</span>
+                <h2 class="section-title">النصائح والأدلة الطبية</h2>
+                <p class="section-description">تعلم أفضل الممارسات في استخدام وصيانة الأجهزة الطبية</p>
+            </div>
+
+            <div class="tips-grid">
+                <!-- بطاقة السلامة -->
+                <div class="tip-card fade-in-up" data-delay="0.1s">
+                    <div class="tip-icon safety">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">السلامة</span>
+                        <h3 class="tip-title">معايير السلامة في غرف العمليات</h3>
+                        <p class="tip-description">التأكد من تطبيق جميع معايير السلامة والأمان في غرف العمليات الجراحية.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 5 دقائق قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('safety-standards')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة الأشعة السينية -->
+                <div class="tip-card fade-in-up" data-delay="0.2s">
+                    <div class="tip-icon maintenance">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">الصيانة</span>
+                        <h3 class="tip-title">صيانة أجهزة الأشعة السينية</h3>
+                        <p class="tip-description">نصائح مهمة للحفاظ على أجهزة الأشعة السينية وضمان دقة التشخيص.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 8 دقائق قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('xray-maintenance')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة المراقبة الحيوية -->
+                <div class="tip-card fade-in-up" data-delay="0.3s">
+                    <div class="tip-icon usage">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">الاستخدام</span>
+                        <h3 class="tip-title">استخدام أجهزة المراقبة الحيوية</h3>
+                        <p class="tip-description">دليل شامل لاستخدام أجهزة مراقبة العلامات الحيوية للمرضى.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 6 دقائق قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('vital-monitoring')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة الصحة -->
+                <div class="tip-card fade-in-up" data-delay="0.4s">
+                    <div class="tip-icon health">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">الصحة</span>
+                        <h3 class="tip-title">العناية الصحية للفنيين الطبيين</h3>
+                        <p class="tip-description">نصائح مهمة للعناية بصحة العاملين في المجال الطبي وتجنب التعرض للمخاطر.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 7 دقائق قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('medical-health')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة الحرائق -->
+                <div class="tip-card fade-in-up" data-delay="0.5s">
+                    <div class="tip-icon safety">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">السلامة</span>
+                        <h3 class="tip-title">السلامة من الحرائق في المستشفيات</h3>
+                        <p class="tip-description">بروتوكولات وإجراءات السلامة من الحرائق في المرافق الطبية.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 10 دقائق قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('fire-safety')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة التدريب -->
+                <div class="tip-card fade-in-up" data-delay="0.6s">
+                    <div class="tip-icon training">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">التدريب</span>
+                        <h3 class="tip-title">برامج التدريب المستمر</h3>
+                        <p class="tip-description">أهمية التدريب المستمر للطاقم الطبي ومواكبة التطورات التكنولوجية.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 9 دقائق قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('continuous-training')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة المختبر -->
+                <div class="tip-card fade-in-up" data-delay="0.7s">
+                    <div class="tip-icon maintenance">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">الصيانة</span>
+                        <h3 class="tip-title">صيانة أجهزة المختبر</h3>
+                        <p class="tip-description">نصائح للمحافظة على أجهزة المختبر وضمان دقة النتائج.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 12 دقيقة قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('lab-maintenance')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة أنظمة المعلومات -->
+                <div class="tip-card fade-in-up" data-delay="0.8s">
+                    <div class="tip-icon usage">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="tip-content">
+                        <span class="tip-category">الاستخدام</span>
+                        <h3 class="tip-title">أنظمة إدارة المعلومات الطبية</h3>
+                        <p class="tip-description">كيفية الاستفادة القصوى من أنظمة إدارة المعلومات الطبية.</p>
+                        <div class="tip-meta">
+                            <span class="read-time"><i class="fas fa-clock"></i> 15 دقيقة قراءة</span>
+                            <button class="read-btn" onclick="openTipModal('medical-info-systems')">
+                                <i class="fas fa-book-open"></i> اقرأ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة عرض النصائح -->
+    <div class="tip-modal" id="tip-modal">
+        <div class="tip-modal-content">
+            <div class="tip-modal-header">
+                <h3 class="tip-modal-title" id="tip-modal-title">عنوان النصيحة</h3>
+                <button class="close-tip-modal" id="close-tip-modal">&times;</button>
+            </div>
+            <div class="tip-modal-body" id="tip-modal-body">
+                <!-- محتوى النصيحة سيتم تحميله هنا -->
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember-me">
+                            <span class="checkmark"></span>
+                            تذكرني
+                        </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="agree-terms" required>
+                            <span class="checkmark"></span>
+                            أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> إنشاء حساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-credit-card"></i> إتمام الشراء
+            </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-chevron-left"></i> الأطباء</a></li>
+                        <li><a href="tips.html"><i class="fas fa-chevron-left"></i> النصائح</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-mferrer-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="076e696168476a62636e64666b74736875622964686a">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // بيانات النصائح
+        const tipsData = {
+            'safety-standards': {
+                title: 'معايير السلامة في غرف العمليات',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>إنشاء بيئة آمنة في غرف العمليات أمر بالغ الأهمية لضمان سلامة المرضى والعاملين الطبيين.</strong></p>
+                        </div>
+                        
+                        <h4>🔒 معايير السلامة الأساسية:</h4>
+                        <ul>
+                            <li><strong>فحص الأجهزة:</strong> التأكد من سلامة جميع الأجهزة قبل كل عملية</li>
+                            <li><strong>البيئة المعقمة:</strong> الحفاظ على نظافة وتعقيم الغرفة</li>
+                            <li><strong>الطوارئ:</strong> وجود خطة طوارئ واضحة وموثقة</li>
+                            <li><strong>التدريب:</strong> تدريب جميع أعضاء الفريق على إجراءات السلامة</li>
+                        </ul>
+
+                        <h4>⚠️ إجراءات السلامة الفورية:</h4>
+                        <ul>
+                            <li>فحص سريع للأجهزة قبل بدء العملية</li>
+                            <li>التأكد من وجود طاقم الإسعافات الأولية</li>
+                            <li>وضع خطة للطوارئ</li>
+                            <li>التواصل المستمر بين أعضاء الفريق</li>
+                        </ul>
+
+                        <h4>📋 قائمة المراجعة:</h4>
+                        <ol>
+                            <li>فحص جميع الأجهزة الطبية</li>
+                            <li>التأكد من وجود جميع الأدوات اللازمة</li>
+                            <li>مراجعة خطة العملية مع الفريق</li>
+                            <li>التأكد من وجود خطة الطوارئ</li>
+                            <li>فحص غرفة العمليات للتأكد من نظافتها</li>
+                        </ol>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> سلامة المريض هي الأولوية الأولى في أي إجراء طبي.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'xray-maintenance': {
+                title: 'صيانة أجهزة الأشعة السينية',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>صيانة أجهزة الأشعة السينية بشكل منتظم أمر ضروري لضمان دقة التشخيص وسلامة المرضى.</strong></p>
+                        </div>
+                        
+                        <h4>🔧 الصيانة الدورية:</h4>
+                        <ul>
+                            <li><strong>القياسات:</strong> فحص دقة الإشعاع كل شهر</li>
+                            <li><strong>العدسة:</strong> تنظيف العدسة والمكونات البصرية</li>
+                            <li><strong>البرامج:</strong> تحديث البرامج والتطبيقات</li>
+                            <li><strong>الأجزاء:</strong> فحص واستبدال الأجزاء التالفة</li>
+                        </ul>
+
+                        <h4>⚡ نصائح الصيانة اليومية:</h4>
+                        <ul>
+                            <li>تشغيل الجهاز قبل كل استخدام</li>
+                            <li>فحص كابلات التوصيل</li>
+                            <li>تأكد من استقرار الصورة</li>
+                            <li>نظف سطح الجهاز بعد كل استخدام</li>
+                        </ul>
+
+                        <h4>🛠️ استكشاف الأخطاء:</h4>
+                        <ul>
+                            <li><strong>صورة غير واضحة:</strong> فحص العدسة والعدسة</li>
+                            <li><strong>ضوضاء في الصورة:</strong> فحص كابلات التوصيل</li>
+                            <li><strong>فشل في التشغيل:</strong> فحص الطاقة والتوصيلات</li>
+                            <li><strong>رسائل خطأ:</strong> مراجعة دليل المستخدم</li>
+                        </ul>
+
+                        <h4>📊 مؤشرات الأداء:</h4>
+                        <ul>
+                            <li>دقة الصورة: 95% أو أعلى</li>
+                            <li>زمن الاستجابة: أقل من 5 ثوانٍ</li>
+                            <li>استقرار الصورة: بدون اهتزاز</li>
+                            <li>جودة الصورة: واضحة ومفصلة</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>نصيحة مهمة:</strong> احتفظ بسجل للصيانة وفحص الأجهزة بانتظام لضمان دقة التشخيص.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'vital-monitoring': {
+                title: 'استخدام أجهزة المراقبة الحيوية',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>أجهزة مراقبة العلامات الحيوية ضرورية لمراقبة حالة المرضى وتقديم رعاية طبية فعالة.</strong></p>
+                        </div>
+                        
+                        <h4>📊 العلامات الحيوية الأساسية:</h4>
+                        <ul>
+                            <li><strong>ضغط الدم:</strong> قياس ضغط الدم الانقباضي والانبساطي</li>
+                            <li><strong>النبض:</strong> قياس معدل ضربات القلب</li>
+                            <li><strong>التنفس:</strong> مراقبة معدل التنفس</li>
+                            <li><strong>درجة الحرارة:</strong> قياس درجة حرارة الجسم</li>
+                            <li><strong>الأكسجين:</strong> مستوى تشبع الأكسجين في الدم</li>
+                        </ul>
+
+                        <h4>🎯 خطوات الاستخدام الصحيح:</h4>
+                        <ol>
+                            <li>تأكد من تشغيل الجهاز بشكل صحيح</li>
+                            <li>ضع أجهزة الاستشعار في المكان المناسب</li>
+                            <li>اضبط الجهاز على settings مناسبة للمريض</li>
+                            <li>راقب القراءة بانتظام</li>
+                            <li>سجل أي تغييرات مهمة</li>
+                        </ol>
+
+                        <h4>⚠️ تحذيرات مهمة:</h4>
+                        <ul>
+                            <li><strong>ارتفاع ضغط الدم:</strong> أكثر من 180/110 ملم زئبق</li>
+                            <li><strong>انخفاض ضغط الدم:</strong> أقل من 90/60 ملم زئبق</li>
+                            <li><strong>نبض سريع:</strong> أكثر من 120 نبضة/دقيقة</li>
+                            <li><strong>نبض بطيء:</strong> أقل من 60 نبضة/دقيقة</li>
+                            <li><strong>حرارة عالية:</strong> أكثر من 38.5 درجة مئوية</li>
+                        </ul>
+
+                        <h4>🔧 حل المشاكل الشائعة:</h4>
+                        <ul>
+                            <li><strong>قيمة غير منطقية:</strong> تحقق من وضع أجهزة الاستشعار</li>
+                            <li><strong>قيمة صفرية:</strong> تحقق من التوصيلات</li>
+                            <li><strong>تنبيه مستمر:</strong> تحقق من limits المحددة</li>
+                            <li><strong>بطارية منخفضة:</strong> اشحن الجهاز فوراً</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> القيم الطبيعية تختلف حسب عمر وحالة المريض.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'medical-health': {
+                title: 'العناية الصحية للفنيين الطبيين',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>العناية بصحة العاملين في المجال الطبي أمر ضروري لضمان استمرارية الرعاية الطبية.</strong></p>
+                        </div>
+                        
+                        <h4>🛡️ الحماية من العدوى:</h4>
+                        <ul>
+                            <li><strong>استخدام القفازات:</strong> تغيير القفازات بعد كل مريض</li>
+                            <li><strong>الأقنعة الواقية:</strong> ارتداء الأقنعة في المناطق عالية الخطورة</li>
+                            <li><strong>التعقيم:</strong> غسيل اليدين قبل وبعد كل إجراء</li>
+                            <li><strong>اللقاحات:</strong> الحصول على اللقاحات اللازمة</li>
+                        </ul>
+
+                        <h4>💪 النصائح الصحية العامة:</h4>
+                        <ul>
+                            <li>نوم 7-8 ساعات يومياً</li>
+                            <li>تناول وجبات صحية ومتوازنة</li>
+                            <li>شرب الماء بكميات كافية</li>
+                            <li>ممارسة التمارين الرياضية بانتظام</li>
+                            <li>إدارة التوتر والضغط النفسي</li>
+                        </ul>
+
+                        <h4>⚠️ تجنب المخاطر:</h4>
+                        <ul>
+                            <li><strong>الحوادث:</strong> استخدام الأدوات بحذر</li>
+                            <li><strong>المواد الكيميائية:</strong> قراءة التعليمات جيداً</li>
+                            <li><strong>الإشعاع:</strong> استخدام وسائل الحماية</li>
+                            <li><strong>الضوضاء:</strong> استخدام حماية الأذن عند الحاجة</li>
+                        </ul>
+
+                        <h4>🏥 فحوصات دورية:</h4>
+                        <ul>
+                            <li>فحص شراء طبي كل 6 أشهر</li>
+                            <li>فحص النظر والسمع</li>
+                            <li>فحص العظام والمفاصل</li>
+                            <li>فحص الصحة النفسية</li>
+                        </ul>
+
+                        <h4>🧘‍♀️ إدارة التوتر:</h4>
+                        <ul>
+                            <li>أخذ فترات راحة منتظمة</li>
+                            <li>التحدث مع الزملاء عن المشاكل</li>
+                            <li>طلب المساعدة عند الحاجة</li>
+                            <li>ممارسة تقنيات التنفس العميق</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> صحة العاملين الطبية تؤثر مباشرة على جودة الرعاية المقدمة للمرضى.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'fire-safety': {
+                title: 'السلامة من الحرائق في المستشفيات',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>السلامة من الحرائق في المستشفيات أمر بالغ الأهمية بسبب وجود مرضى وحالات طوارئ.</strong></p>
+                        </div>
+                        
+                        <h4>🔥 أنظمة الإنذار المبكر:</h4>
+                        <ul>
+                            <li><strong>أجهزة كشف الدخان:</strong> فحص دوري للبطارية</li>
+                            <li><strong>أجهزة إنذار الحريق:</strong> اختبار شهري للنظام</li>
+                            <li><strong>نظام الرش:</strong> فحص ضغط الماء بانتظام</li>
+                            <li><strong>الأصوات التنبيهية:</strong> التأكد من وضوح الصوت</li>
+                        </ul>
+
+                        <h4>🚨 خطة الطوارئ:</h4>
+                        <ol>
+                            <li>تحديد مخارج الطوارئ</li>
+                            <li>تحديد مناطق التجمع الآمنة</li>
+                            <li>تدريب جميع الموظفين</li>
+                            <li>إجراء تدريبات دورية</li>
+                            <li>تحديث خطة الطوارئ سنوياً</li>
+                        </ol>
+
+                        <h4>🛡️ معدات مكافحة الحرائق:</h4>
+                        <ul>
+                            <li><strong>طفايات الحريق:</strong> فحص شهري وتوثيق الاستخدام</li>
+                            <li><strong>خراطيم المياه:</strong> فحص ضغط الماء وتطريبات الطوب</li>
+                            <li><strong>قنوات الإطفاء:</strong> تنظيف وصيانة دورية</li>
+                            <li><strong>أجهزة الاتصال:</strong> اختبار أنظمة التنبيه</li>
+                        </ul>
+
+                        <h4>📋 قائمة المراجعة اليومية:</h4>
+                        <ul>
+                            <li>فحص جميع مخارج الطوارئ</li>
+                            <li>التأكد من عدم وجود عوائق</li>
+                            <li>فحص مخزون طفايات الحريق</li>
+                            <li>تأكد من عمل أنظمة الإنذار</li>
+                            <li>مراجعة خطط الطوارئ</li>
+                        </ul>
+
+                        <h4>👥 التدريب والتعليم:</h4>
+                        <ul>
+                            <li>تدريب جميع الموظفين على خطة الإخلاء</li>
+                            <li>تدريب فرق مكافحة الحرائق</li>
+                            <li>إجراء تدريبات دورية للطوارئ</li>
+                            <li>تحديث التدريب عند تغيير اللوائح</li>
+                        </ul>
+
+                        <h4>🏥 اعتبارات خاصة بالمستشفيات:</h4>
+                        <ul>
+                            <li>مرضى العناية المركزة: نقل آمن ومنظم</li>
+                            <li>الجراحات: إيقاف العمليات بأمان</li>
+                            <li>الأقسام المغلقة: ضمان التهوية</li>
+                            <li>المخازن: فحص المواد القابلة للاشتعال</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> الوقاية أفضل من العلاج، والتدريب الدوري ينقذ الأرواح.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'continuous-training': {
+                title: 'برامج التدريب المستمر',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>التدريب المستمر للطاقم الطبي ضروري لمواكبة التطورات التكنولوجية والعلمية.</strong></p>
+                        </div>
+                        
+                        <h4>🎓 أهمية التدريب المستمر:</h4>
+                        <ul>
+                            <li><strong>التطور التكنولوجي:</strong> مواكبة أجهزة وتقنيات جديدة</li>
+                            <li><strong>معايير الجودة:</strong> تحسين مستوى الرعاية الطبية</li>
+                            <li><strong>السلامة:</strong> تقليل الأخطاء الطبية</li>
+                            <li><strong>الكفاءة:</strong> تحسين الأداء والإنتاجية</li>
+                        </ul>
+
+                        <h4>📚 أنواع التدريب:</h4>
+                        <ul>
+                            <li><strong>التدريب التقني:</strong> استخدام الأجهزة الجديدة</li>
+                            <li><strong>التدريب الطبي:</strong> تحديث المعارف الطبية</li>
+                            <li><strong>التدريب الإداري:</strong> تحسين إدارة المرافق</li>
+                            <li><strong>التدريب على الطوارئ:</strong> التعامل مع الحالات الطارئة</li>
+                        </ul>
+
+                        <h4>🎯 طرق التدريب المختلفة:</h4>
+                        <ul>
+                            <li><strong>الدورات التدريبية:</strong> جلسات نظرية وعملية</li>
+                            <li><strong>التدريب الإلكتروني:</strong> منصات التعلم الإلكتروني</li>
+                            <li><strong>الورش العملية:</strong> تطبيق عملي للمهارات</li>
+                            <li><strong>التدريب بالملاحظة:</strong> التعلم من الزملاء الخبراء</li>
+                        </ul>
+
+                        <h4>📊 تقييم فعالية التدريب:</h4>
+                        <ul>
+                            <li>اختبارات قبل وبعد التدريب</li>
+                            <li>تقييم الأداء في العمل</li>
+                            <li>رصد التحسن في النتائج</li>
+                            <li>ملاحظات المرضى والزملاء</li>
+                        </ul>
+
+                        <h4>💡 نصائح للنجاح في التدريب:</h4>
+                        <ul>
+                            <li>تحديد أهداف واضحة للتدريب</li>
+                            <li>اختيار التدريب المناسب لاحتياجات العمل</li>
+                            <li>الالتزام بالخطة التدريبية</li>
+                            <li>ممارسة ما تعلمته بانتظام</li>
+                            <li>مشاركة المعرفة مع الزملاء</li>
+                        </ul>
+
+                        <h4>🏆 فوائد التدريب المستمر:</h4>
+                        <ul>
+                            <li>تحسين مهارات العمل</li>
+                            <li>زيادة الثقة بالنفس</li>
+                            <li>تحسين فرص الترقية</li>
+                            <li>مواكبة أحدث التطورات</li>
+                            <li>تحسين جودة الرعاية الطبية</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> التعلم عملية مستمرة، وكل يوم هو فرصة لتطوير مهارات جديدة.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'lab-maintenance': {
+                title: 'صيانة أجهزة المختبر',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>صيانة أجهزة المختبر بشكل منتظم أمر ضروري لضمان دقة النتائج والموثوقية.</strong></p>
+                        </div>
+                        
+                        <h4>🔬 أنواع أجهزة المختبر:</h4>
+                        <ul>
+                            <li><strong>الطرد المركزي:</strong> لفصل المواد عن بعضها</li>
+                            <li><strong>المجهر:</strong> لفحص العينات الدقيقة</li>
+                            <li><strong>محلل الكيمياء:</strong> لتحليل التركيب الكيميائي</li>
+                            <li><strong>جهاز pH:</strong> لقياس الحموضة</li>
+                            <li><strong>الترمومتر:</strong> لقياس درجة الحرارة</li>
+                        </ul>
+
+                        <h4>📅 جدولة الصيانة:</h4>
+                        <ul>
+                            <li><strong>يومياً:</strong> تنظيف أسطح الأجهزة</li>
+                            <li><strong>أسبوعياً:</strong> فحص التوصيلات</li>
+                            <li><strong>شهرياً:</strong> معايرة الأجهزة</li>
+                            <li><strong>ربع سنوي:</strong> فحص شامل للأجهزة</li>
+                            <li><strong>سنوياً:</strong> صيانة شاملة</li>
+                        </ul>
+
+                        <h4>🧽 التنظيف اليومي:</h4>
+                        <ol>
+                            <li>أطفئ الجهاز قبل التنظيف</li>
+                            <li>استخدم المنظفات المناسبة</li>
+                            <li>نظف جميع الأسطح والعدسات</li>
+                            <li>جفف جيداً لمنع الصدأ</li>
+                            <li>تأكد من الجفاف قبل التشغيل</li>
+                        </ol>
+
+                        <h4>⚙️ معايرة الأجهزة:</h4>
+                        <ul>
+                            <li>استخدم معايير معتمدة</li>
+                            <li>سجل جميع القياسات</li>
+                            <li>تأكد من دقة النتائج</li>
+                            <li>ضبط الجهاز إذا لزم الأمر</li>
+                        </ul>
+
+                        <h4>🔧 استكشاف الأخطاء:</h4>
+                        <ul>
+                            <li><strong>نتائج غير دقيقة:</strong> فحص المعايرة</li>
+                            <li><strong>صوت غير طبيعي:</strong> فحص البكرة والمحامل</li>
+                            <li><strong>عدم تشغيل:</strong> فحص الطاقة والتوصيلات</li>
+                            <li><strong>تسريب:</strong> فحص الحاجز والخراطيم</li>
+                        </ul>
+
+                        <h4>📊 حفظ السجلات:</h4>
+                        <ul>
+                            <li>سجلات الصيانة الدورية</li>
+                            <li>نتائج المعايرة</li>
+                            <li>تاريخ إصلاح الأجزاء</li>
+                            <li>استهلاك قطع الغيار</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> صيانة أجهزة المختبر تؤثر مباشرة على دقة نتائج التحاليل.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'medical-info-systems': {
+                title: 'أنظمة إدارة المعلومات الطبية',
+                content: `
+                    <div class="tip-content-wrapper">
+                        <div class="tip-intro">
+                            <p><strong>أنظمة إدارة المعلومات الطبية تحول البيانات الصحية إلى أداة فعالة لتحسين الرعاية الطبية.</strong></p>
+                        </div>
+                        
+                        <h4>💻 فوائد أنظمة إدارة المعلومات:</h4>
+                        <ul>
+                            <li><strong>سهولة الوصول:</strong> معلومات المرضى في مكان واحد</li>
+                            <li><strong>دقة البيانات:</strong> تقليل الأخطاء البشرية</li>
+                            <li><strong>الأمان:</strong> حماية معلومات المرضى</li>
+                            <li><strong>التكامل:</strong> ربط أقسام المستشفى</li>
+                            <li><strong>التقارير:</strong> تحليل البيانات والإحصائيات</li>
+                        </ul>
+
+                        <h4>🏥 مكونات النظام:</h4>
+                        <ul>
+                            <li><strong>سجلات المرضى:</strong> التاريخ الطبي والفحوصات</li>
+                            <li><strong>إدارة المواعيد:</strong> جدولة المواعيد</li>
+                            <li><strong>إدارة الفواتير:</strong> محاسبة المرضى</li>
+                            <li><strong>إدارة المخزون:</strong> تتبع الأدوية والمعدات</li>
+                            <li><strong>التقارير والإحصائيات:</strong> تحليل الأداء</li>
+                        </ul>
+
+                        <h4>👨‍⚕️ أفضل الممارسات:</h4>
+                        <ol>
+                            <li>تدريب جميع المستخدمين على النظام</li>
+                            <li>إنشاء كلمات مرور قوية</li>
+                            <li>نسخ احتياطية منتظمة للبيانات</li>
+                            <li>تحديث النظام بانتظام</li>
+                            <li>مراجعة صلاحيات الوصول</li>
+                        </ol>
+
+                        <h4>🔒 الأمان وحماية البيانات:</h4>
+                        <ul>
+                            <li>تشفير البيانات الحساسة</li>
+                            <li>مصادقة المستخدمين متعددة العوامل</li>
+                            <li>مراقبة سجلات الوصول</li>
+                            <li>حماية من الفيروسات والبرامج الضارة</li>
+                            <li>تدريب على الأمن السيبراني</li>
+                        </ul>
+
+                        <h4>📱 الأجهزة المحمولة:</h4>
+                        <ul>
+                            <li>تطبيقات الهواتف الذكية</li>
+                            <li>أجهزة كمبيوتر محمولة للأطباء</li>
+                            <li>أجهزة طبية ذكية</li>
+                            <li>ربط الأجهزة بالإنترنت</li>
+                        </ul>
+
+                        <h4>🔄 التكامل مع الأنظمة الأخرى:</h4>
+                        <ul>
+                            <li>ربط مع مختبر التحاليل</li>
+                            <li>ربط مع أقسام الأشعة</li>
+                            <li>ربط مع الصيدلية</li>
+                            <li>ربط مع أنظمة التأمين</li>
+                        </ul>
+
+                        <h4>📊 مؤشرات الأداء:</h4>
+                        <ul>
+                            <li>وقت استجابة النظام</li>
+                            <li>دقة البيانات</li>
+                            <li>مستوى رضا المستخدمين</li>
+                            <li>معدل التوفر</li>
+                            <li>عدد الأخطاء</li>
+                        </ul>
+
+                        <div class="tip-conclusion">
+                            <p><strong>تذكر:</strong> النجاح في تطبيق نظام إدارة المعلومات يتطلب تخطيط جيد وتدريب مستمر.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // فتح نافذة النصيحة
+        function openTipModal(tipId) {
+            const tip = tipsData[tipId];
+            if (!tip) return;
+
+            const modal = document.getElementById('tip-modal');
+            const title = document.getElementById('tip-modal-title');
+            const body = document.getElementById('tip-modal-body');
+
+            title.textContent = tip.title;
+            body.innerHTML = tip.content;
+            modal.classList.add('active');
+        }
+
+        // إغلاق نافذة النصيحة
+        function closeTipModal() {
+            const modal = document.getElementById('tip-modal');
+            modal.classList.remove('active');
+        }
+
+        // تهيئة صفحة النصائح
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة العدادات
+            animateCounters();
+            
+            // تهيئة التأثيرات البصرية
+            initializeAnimations();
+            
+            // ربط أزرار الإغلاق
+            document.getElementById('close-tip-modal').addEventListener('click', closeTipModal);
+            
+            // إغلاق النافذة بالنقر خارجها
+            document.getElementById('tip-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeTipModal();
+                }
+            });
+        });
+
+        // تهيئة العدادات المتحركة
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.textContent);
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // دالة العداد المتحرك
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 30);
+        }
+
+        // تهيئة التأثيرات البصرية
+        function initializeAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                animationObserver.observe(element);
+            });
+        }
+    </script>
+</body>
+
+</html>

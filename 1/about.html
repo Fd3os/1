@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عن المتجر - متجر الطب العالمي</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html" class="active">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي المحسن -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-heart"></i>
+                <span>رؤيتنا ورسالتنا</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">عن متجر الطب</span>
+                <span class="title-highlight">العالمي</span>
+            </h1>
+            <p class="hero-description">
+                نحن ملتزمون بتوفير أحدث الأجهزة الطبية بأعلى معايير الجودة والخدمة لعملائنا في العراق والمنطقة
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number counter">500</div>
+                    <div class="stat-label">مؤسسة صحية</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">2000</div>
+                    <div class="stat-label">منتج طبي</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">10</div>
+                    <div class="stat-label">سنوات خبرة</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#our-story" class="btn btn-primary btn-large">
+                    <i class="fas fa-book"></i>
+                    <span>قصتنا</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-large">
+                    <i class="fas fa-phone"></i>
+                    <span>تواصل معنا</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section class="section" id="our-story">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in-up">
+                    <div class="section-header">
+                        <span class="section-subtitle">تعرف علينا</span>
+                        <h2 class="section-title">من نحن</h2>
+                    </div>
+                    <p>متجر الطب العالمي هو منصة رائدة في مجال بيع وتوزيع الأجهزة الطبية في العراق. نهدف إلى توفير أحدث وأفضل الأجهزة الطبية للمؤسسات الصحية والمراكز الطبية بكافة أنحاء البلاد.</p>
+                    <p>تأسس متجرنا من منطلق إيماننا بأهمية القطاع الصحي في تطوير المجتمع وتوفير الرعاية الطبية عالية الجودة لجميع المواطنين.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <span>جودة عالمية مضمونة</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-truck"></i>
+                            <span>توصيل سريع وموثوق</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-headset"></i>
+                            <span>دعم فني متخصص</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in-up" data-delay="0.2s">
+                    <div class="image-container">
+                        <img src="img/المستقبل.png" alt="متجر الطب العالمي" />
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class="fas fa-play"></i>
+                                <span>شاهد قصتنا</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم رؤيتنا ورسالتنا -->
+    <section class="section vision-mission">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">قيمنا ومبادئنا</span>
+                <h2 class="section-title">رؤيتنا ورسالتنا</h2>
+                <p class="section-description">نعمل وفق رؤية واضحة ورسالة محددة</p>
+            </div>
+            <div class="vm-grid">
+                <div class="vm-card fade-in-up" data-delay="0.1s">
+                    <div class="vm-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون الوجهة الأولى والأكثر موثوقية للأجهزة الطبية في العراق والمنطقة، وساهمين في تطوير القطاع الصحي من خلال توفير أحدث التقنيات الطبية.</p>
+                    <div class="vm-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>الريادة في السوق</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>الثقة والموثوقية</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>التطوير المستمر</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vm-card fade-in-up" data-delay="0.2s">
+                    <div class="vm-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>رسالتنا</h3>
+                    <p>نسعى لتوفير أجهزة طبية عالية الجودة بأفضل الأسعار، مع تقديم خدمات ما بعد البيع المتميزة والدعم الفني المتخصص لضمان رضا عملائنا وتحقيق أهدافهم الطبية.</p>
+                    <div class="vm-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>الجودة العالية</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>الأسعار التنافسية</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>خدمة ما بعد البيع</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم قيمنا -->
+    <section class="section values-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">مبادئنا الأساسية</span>
+                <h2 class="section-title">قيمنا الأساسية</h2>
+                <p class="section-description">المبادئ التي نؤمن بها ونعمل على أساسها</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card fade-in-up" data-delay="0.1s">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>الجودة والأمان</h3>
+                    <p>نلتزم بتقديم منتجات عالية الجودة مطابقة للمعايير الدولية للسلامة والأمان الطبي.</p>
+                    <div class="value-stats">
+                        <span class="stat">100% مطابق للمعايير</span>
+                    </div>
+                </div>
+                <div class="value-card fade-in-up" data-delay="0.2s">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>الثقة والمصداقية</h3>
+                    <p>نبني علاقات طويلة الأمد مع عملائنا قائمة على الثقة والشفافية في جميع تعاملاتنا.</p>
+                    <div class="value-stats">
+                        <span class="stat">500+ عميل راضٍ</span>
+                    </div>
+                </div>
+                <div class="value-card fade-in-up" data-delay="0.3s">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>خدمة العملاء</h3>
+                    <p>نضع احتياجات عملائنا في المقدمة ونسعى لتقديم أفضل خدمة دعم فني ومتابعة ما بعد البيع.</p>
+                    <div class="value-stats">
+                        <span class="stat">24/7 دعم فني</span>
+                    </div>
+                </div>
+                <div class="value-card fade-in-up" data-delay="0.4s">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>الابتكار والتطوير</h3>
+                    <p>نسعى دائماً لتحديث منتجاتنا وخدماتنا لمواكبة أحدث التطورات في مجال الأجهزة الطبية.</p>
+                    <div class="value-stats">
+                        <span class="stat">حديث التقنيات</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم إحصائياتنا -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">إنجازاتنا بالأرقام</span>
+                <h2 class="section-title">نفتخر بما حققناه معاً</h2>
+                <p class="section-description">أرقام تتحدث عن تميزنا ونموذج نجاحنا</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in-up" data-delay="0.1s">
+                    <div class="stat-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="stat-number counter">500</div>
+                    <div class="stat-label">مؤسسة صحية</div>
+                    <div class="stat-description">تخدمها منتجاتنا</div>
+                </div>
+                <div class="stat-card fade-in-up" data-delay="0.2s">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-number counter">2000</div>
+                    <div class="stat-label">منتج طبي</div>
+                    <div class="stat-description">في مجموعتنا</div>
+                </div>
+                <div class="stat-card fade-in-up" data-delay="0.3s">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number counter">50</div>
+                    <div class="stat-label">موظف متخصص</div>
+                    <div class="stat-description">في فريقنا</div>
+                </div>
+                <div class="stat-card fade-in-up" data-delay="0.4s">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="stat-number counter">10</div>
+                    <div class="stat-label">سنوات خبرة</div>
+                    <div class="stat-description">في السوق</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم خدماتنا -->
+    <section class="section services-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">خدماتنا المتميزة</span>
+                <h2 class="section-title">نقدم مجموعة شاملة من الخدمات</h2>
+                <p class="section-description">خدمات متكاملة لضمان رضاكم الكامل</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up" data-delay="0.1s">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>التوصيل والشحن</h3>
+                    <p>نوفر خدمة تويل آمنة وسريعة لجميع المحافظات مع ضمان وصول المنتجات بحالة ممتازة.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> توصيل مجاني فوق مليون</span>
+                        <span><i class="fas fa-check"></i> تتبع الطلبات</span>
+                        <span><i class="fas fa-check"></i> تغليف آمن</span>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up" data-delay="0.2s">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>التركيب والصيانة</h3>
+                    <p>فريق فني متخصص لتركيب الأجهزة وصيانتها الدورية لضمان الأداء الأمثل.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> تركيب مجاني</span>
+                        <span><i class="fas fa-check"></i> صيانة دورية</span>
+                        <span><i class="fas fa-check"></i> قطع غيار أصلية</span>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up" data-delay="0.3s">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>التدريب والتعليم</h3>
+                    <p>برامج تدريبية متخصصة لاستخدام وصيانة الأجهزة الطبية للفنيين والأطباء.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> تدريب مجاني</span>
+                        <span><i class="fas fa-check"></i> شهادات معتمدة</span>
+                        <span><i class="fas fa-check"></i> دورات مستمرة</span>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up" data-delay="0.4s">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>الدعم الفني</h3>
+                    <p>خدمة عملاء متاحة 24/7 لحل جميع الاستفسارات وتقديم الدعم الفني المطلوب.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> دعم 24/7</span>
+                        <span><i class="fas fa-check"></i> استجابة سريعة</span>
+                        <span><i class="fas fa-check"></i> حلول مخصصة</span>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up" data-delay="0.5s">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>الضمان والجودة</h3>
+                    <p>ضمان شامل على جميع المنتجات مع ضمان الجودة والأداء الموثوق.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> ضمان شامل</span>
+                        <span><i class="fas fa-check"></i> جودة مضمونة</span>
+                        <span><i class="fas fa-check"></i> شهادات دولية</span>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up" data-delay="0.6s">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>طرق دفع مرنة</h3>
+                    <p>خيارات دفع متنوعة ومرنة تناسب جميع الميزانيات والاحتياجات.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> خطط دفع مرنة</span>
+                        <span><i class="fas fa-check"></i> طرق دفع متعددة</span>
+                        <span><i class="fas fa-check"></i> أسعار تنافسية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم شهادات العملاء -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">آراء عملائنا</span>
+                <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+                <p class="section-description">تجارب حقيقية من عملائنا الكرام</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up" data-delay="0.1s">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"خدمة ممتازة وجودة عالية في المنتجات. لقد ساعدونا كثيراً في تجهيز عيادتنا بالأجهزة المناسبة."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>د. أحمد محمد</h4>
+                            <span>طبيب عام - بغداد</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up" data-delay="0.2s">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"فريق محترف وخدمة عملاء راقية. الدعم الفني متاح دائماً وحل المشاكل سريع."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>مستشفى النور</h4>
+                            <span>إدارة المشتريات - البصرة</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up" data-delay="0.3s">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"أسعار تنافسية وجودة مضمونة. ننصح بالتعامل معهم لأي مؤسسة صحية."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>د. فاطمة علي</h4>
+                            <span>طبيبة نساء - كربلاء</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="remember-me">
+              <span class="checkmark"></span>
+              تذكرني
+            </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+          </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="agree-terms" required>
+              <span class="checkmark"></span>
+              أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+            </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-user-plus"></i> إنشاء حساب
+          </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <!-- سيتم إضافة عناصر السلة هنا عبر JavaScript -->
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-credit-card"></i> إتمام الشراء
+      </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-chevron-left"></i> الأطباء</a></li>
+                        <li><a href="tips.html"><i class="fas fa-chevron-left"></i> النصائح</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0960676f6649646c6d606a68657a7d667b6c276a6664">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    
+    <div class="overlay" id="overlay"></div>
+</body>
+
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الأطباء حسب التخصص - متجر الطب العالمي</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html" class="active">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي المحسن -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-user-md"></i>
+                <span>أطباء متخصصون</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">الأطباء حسب</span>
+                <span class="title-highlight">التخصص</span>
+            </h1>
+            <p class="hero-description">
+                اختر تخصصك الطبي لتجد الأجهزة المناسبة لاحتياجاتك من أحدث التقنيات الطبية
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number counter">12</div>
+                    <div class="stat-label">تخصصات طبية</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">350</div>
+                    <div class="stat-label">جهاز طبي</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number counter">50</div>
+                    <div class="stat-label">خبير طبي</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#specialties" class="btn btn-primary btn-large">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>تصفح التخصصات</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-large">
+                    <i class="fas fa-phone"></i>
+                    <span>استشارة مجانية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم البحث والتصفية -->
+    <section class="section" id="specialties">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">اختر تخصصك</span>
+                <h2 class="section-title">التخصصات الطبية</h2>
+                <p class="section-description">تصفح الأجهزة المناسبة لكل تخصص طبي</p>
+            </div>
+            
+            <!-- أزرار التصفية -->
+            <div class="filter-buttons-container fade-in-up" data-delay="0.1s">
+                <!-- زر dropdown للفلاتر -->
+                <div class="filter-dropdown">
+                    <button class="filter-dropdown-btn" id="filter-dropdown-btn">
+                        <i class="fas fa-filter"></i>
+                        <span>تصفية التخصصات</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="filter-dropdown-content">
+                        <button class="filter-btn active" data-filter="all">جميع التخصصات</button>
+                        <button class="filter-btn" data-filter="analysis">التحليلات</button>
+                        <button class="filter-btn" data-filter="radiology">الأشعة</button>
+                        <button class="filter-btn" data-filter="cardiology">القلب</button>
+                        <button class="filter-btn" data-filter="ophthalmology">العيون</button>
+                        <button class="filter-btn" data-filter="dental">الأسنان</button>
+                        <button class="filter-btn" data-filter="dermatology">الجلدية</button>
+                        <button class="filter-btn" data-filter="orthopedics">العظام</button>
+                        <button class="filter-btn" data-filter="neurology">العصبية</button>
+                        <button class="filter-btn" data-filter="surgery">الجراحة</button>
+                        <button class="filter-btn" data-filter="gynecology">النساء</button>
+                        <button class="filter-btn" data-filter="pediatrics">الأطفال</button>
+                        <button class="filter-btn" data-filter="emergency">الطوارئ</button>
+                    </div>
+                </div>
+                
+                <!-- أزرار الفلاتر السريعة -->
+                <div class="quick-filter-buttons">
+                    <button class="quick-filter-btn active" data-filter="all">جميع التخصصات</button>
+                    <button class="quick-filter-btn" data-filter="cardiology">القلب</button>
+                    <button class="quick-filter-btn" data-filter="analysis">التحليلات</button>
+                    <button class="quick-filter-btn" data-filter="radiology">الأشعة</button>
+                    <button class="quick-filter-btn" data-filter="dermatology">الجلدية</button>
+                </div>
+            </div>
+
+            <div class="specialties-grid">
+                <!-- تخصص التحليلات -->
+                <div class="specialty-card fade-in-up" data-delay="0.1s" data-category="analysis">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>طبيب التحليلات</h3>
+                        <p>أجهزة مختبرية متقدمة للتشخيص المختبري</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-vial"></i> جهاز تحليل الدم الكامل - Automatic CBC Analyzer</li>
+                            <li><i class="fas fa-vial"></i> جهاز تحليل البول التلقائي - 14 Parameter Urine Analyzer</li>
+                            <li><i class="fas fa-microscope"></i> المجهر الطبي عالي الدقة - Digital Medical Microscope</li>
+                            <li><i class="fas fa-flask"></i> جهاز تحليل الكيماويات الحيوية - Biochemistry Analyzer</li>
+                            <li><i class="fas fa-thermometer-half"></i> جهاز قياس الأكسجين في الدم - Pulse Oximeter Pro</li>
+                            <li><i class="fas fa-syringe"></i> جهاز تحليل الهرمونات - Hormone Immunoassay</li>
+                            <li><i class="fas fa-dna"></i> جهاز تحليل الفيروسات - PCR Analyzer</li>
+                            <li><i class="fas fa-vial"></i> جهاز تحليل الفيتامينات - Vitamin Analyzer</li>
+                            <li><i class="fas fa-tint"></i> جهاز تحليل السكر - Glucose Analyzer</li>
+                            <li><i class="fas fa-microscope"></i> مجهر إلكتروني - Electron Microscope</li>
+                            <li><i class="fas fa-flask"></i> جهاز التعقيم بالبخار - Steam Sterilizer</li>
+                            <li><i class="fas fa-balance-scale"></i> ميزان تحليلي - Analytical Balance</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص الأشعة -->
+                <div class="specialty-card fade-in-up" data-delay="0.2s" data-category="radiology">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-x-ray"></i>
+                        </div>
+                        <h3>طبيب الأشعة</h3>
+                        <p>أجهزة تصوير طبي متطورة للتشخيص الدقيق</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-radiation"></i> جهاز الأشعة السينية الرقمية - Digital X-Ray System</li>
+                            <li><i class="fas fa-magnet"></i> جهاز الرنين المغناطيسي - MRI 1.5 Tesla</li>
+                            <li><i class="fas fa-sound"></i> جهاز الموجات فوق الصوتية 4D - 4D Ultrasound Machine</li>
+                            <li><i class="fas fa-radiation-alt"></i> جهاز الأشعة المقطعية - 64-Slice CT Scanner</li>
+                            <li><i class="fas fa-camera"></i> كاميرا الغدة الدرقية - Thyroid Scanner</li>
+                            <li><i class="fas fa-heartbeat"></i> جهاز فحص العظام - Bone Densitometer</li>
+                            <li><i class="fas fa-film"></i> جهاز ماموجرام الثدي - Digital Mammography</li>
+                            <li><i class="fas fa-print"></i> طابرة الأشعة الطبية - Medical Image Printer</li>
+                            <li><i class="fas fa-radiation"></i> جهاز أشعة البانوراما - Panoramic X-Ray</li>
+                            <li><i class="fas fa-eye"></i> جهاز فحص قاع العين - Fundus Camera</li>
+                            <li><i class="fas fa-magnet"></i> جهاز الرنين المفتوح - Open MRI</li>
+                            <li><i class="fas fa-sound"></i> جهاز الموجات الصوتية الثلاثية - 3D Ultrasound</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص القلب -->
+                <div class="specialty-card fade-in-up" data-delay="0.3s" data-category="cardiology">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>طبيب القلب</h3>
+                        <p>أجهزة مراقبة وعلاج القلب والأوعية الدموية</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-heartbeat"></i> جهاز تخطيط القلب التلقائي - ECG 12 Lead</li>
+                            <li><i class="fas fa-heart-pulse"></i> جهاز هولتر القلب 24 ساعة - Holter Monitor</li>
+                            <li><i class="fas fa-blood"></i> جهاز قياس ضغط الدم الرقمي - Digital BP Monitor</li>
+                            <li><i class="fas fa-magnet"></i> جهاز تصوير الأوعية بالرنين - Cardiac MRI</li>
+                            <li><i class="fas fa-sound"></i> جهاز الموجات فوق الصوتية للقلب - Echocardiogram</li>
+                            <li><i class="fas fa-bolt"></i> جهاز مزيل الرجفان التلقائي - AED Defibrillator</li>
+                            <li><i class="fas fa-pacemaker"></i> جهاز تنظيم ضربات القلب - Pacemaker Programmer</li>
+                            <li><i class="fas fa-chart-line"></i> جهاز تحليل وظائف القلب - Cardiac Analyzer</li>
+                            <li><i class="fas fa-radiation"></i> جهاز فحص القلب بالنويدة المشعة - Nuclear Cardiology</li>
+                            <li><i class="fas fa-thermometer-half"></i> جهاز قياس تدفق الدم - Blood Flow Monitor</li>
+                            <li><i class="fas fa-heartbeat"></i> جهاز مراقبة معدل ضربات القلب - HR Monitor</li>
+                            <li><i class="fas fa-lungs"></i> جهاز فحص وظائف الرئة للقلب - CardioPulmonary Testing</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص العيون -->
+                <div class="specialty-card fade-in-up" data-delay="0.4s" data-category="ophthalmology">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>طبيب العيون</h3>
+                        <p>أدوات وفحص دقيق لطب العيون</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-eye"></i> جهاز فحص النظر التلقائي - Auto Refractometer</li>
+                            <li><i class="fas fa-lens"></i> جهاز قياس القرنية - Corneal Topographer</li>
+                            <li><i class="fas fa-eye-dropper"></i> جهاز قياس ضغط العين - Tonometer</li>
+                            <li><i class="fas fa-search"></i> منظار العين المباشر - Direct Ophthalmoscope</li>
+                            <li><i class="fas fa-lightbulb"></i> مصباح شقوق العين - Slit Lamp Biomicroscope</li>
+                            <li><i class="fas fa-camera-retro"></i> جهاز تصوير قاع العين - Fundus Camera</li>
+                            <li><i class="fas fa-glasses"></i> جهاز قياس العدسات - Lensmeter</li>
+                            <li><i class="fas fa-eye-slash"></i> جهاز فحص المجال البصري - Visual Field Analyzer</li>
+                            <li><i class="fas fa-camera"></i> كاميرا الشبكية الرقمية - Digital Retinal Camera</li>
+                            <li><i class="fas fa-wave-square"></i> جهاز قياس سماكة القرنية - Pachymeter</li>
+                            <li><i class="fas fa-magnet"></i> جهاز الرنين المغناطيسي للعين - OCT Scanner</li>
+                            <li><i class="fas fa-eye"></i> جهاز فحص عمق المجال البصري - Depth Perception Tester</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص الأسنان -->
+                <div class="specialty-card fade-in-up" data-delay="0.5s" data-category="dental">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h3>طبيب الأسنان</h3>
+                        <p>أدوات حديثة لعلاج الأسنان والفم</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-drill"></i> وحدة الأسنان المتكاملة - Dental Chair Unit</li>
+                            <li><i class="fas fa-syringe"></i> جهاز التخدير الإلكتروني - Electronic Anesthesia</li>
+                            <li><i class="fas fa-x-ray"></i> جهاز أشعة الأسنان الرقمية - Digital Dental X-Ray</li>
+                            <li><i class="fas fa-suction"></i> جهاز الشفط والفنش - Suction & Air System</li>
+                            <li><i class="fas fa-lightbulb"></i> مصباح полимериزيشن - Dental Curing Light</li>
+                            <li><i class="fas fa-wrench"></i> جهاز تنظيف الجير - Ultrasonic Scaler</li>
+                            <li><i class="fas fa-crown"></i> جهاز تصنيع التيجان - Crown & Bridge System</li>
+                            <li><i class="fas fa-teeth"></i> جهاز تقويم الأسنان - Orthodontic Equipment</li>
+                            <li><i class="fas fa-microscope"></i> مجهر الأسنان - Dental Operating Microscope</li>
+                            <li><i class="fas fa-tooth"></i> جهاز حشو الأسنان - Dental Filling Unit</li>
+                            <li><i class="fas fa-camera"></i> كاميرا داخل الفم - Intraoral Camera</li>
+                            <li><i class="fas fa-pump"></i> مضخة التعقيم البخاري - Autoclave Sterilizer</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص الجلدية -->
+                <div class="specialty-card fade-in-up" data-delay="0.5s" data-category="dermatology">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <h3>طبيب الجلدية</h3>
+                        <p>أجهزة متقدمة لتشخيص وعلاج الأمراض الجلدية</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-microscope"></i> مجهر الجلد الرقمي - Digital Dermoscope</li>
+                            <li><i class="fas fa-lightbulb"></i> مصباح خشبية الجلدي - Wood's Lamp</li>
+                            <li><i class="fas fa-camera"></i> كاميرا التصوير الجلدي - Skin Imaging Camera</li>
+                            <li><i class="fas fa-wave-square"></i> جهاز الموجات فوق الصوتية الجلدية - Skin Ultrasound</li>
+                            <li><i class="fas fa-hand-paper"></i> جهاز تحليل لون البشرة - Skin Analyzer</li>
+                            <li><i class="fas fa-laser"></i> جهاز الليزر الجلدي - Dermatology Laser</li>
+                            <li><i class="fas fa-sun"></i> جهاز العلاج الضوئي - Phototherapy Unit</li>
+                            <li><i class="fas fa-cut"></i> جهاز الكي الكهربائي - Electrocautery</li>
+                            <li><i class="fas fa-hand-paper"></i> جهاز فحص الشامات - Mole Detection Device</li>
+                            <li><i class="fas fa-thermometer-half"></i> جهاز قياس ترطيب البشرة - Skin Hydration Meter</li>
+                            <li><i class="fas fa-palette"></i> جهاز تحليل التصبغ - Pigmentation Analyzer</li>
+                            <li><i class="fas fa-hand-sparkles"></i> جهاز تنظيف البشرة - Skin Cleansing System</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص العظام -->
+                <div class="specialty-card fade-in-up" data-delay="0.6s" data-category="orthopedics">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>طبيب العظام</h3>
+                        <p>أدوات وأجهزة متخصصة في جراحة العظام والمفاصل</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-bone"></i> جهاز فحص كثافة العظام - Bone Densitometer</li>
+                            <li><i class="fas fa-cogs"></i> منظار المفاصل - Arthroscope</li>
+                            <li><i class="fas fa-hammer"></i> مطرقة الفحص العصبي - Neurological Hammer</li>
+                            <li><i class="fas fa-ruler"></i> جهاز قياس المفاصل - Goniometer</li>
+                            <li><i class="fas fa-cut"></i> جهاز قص العظام - Bone Saw</li>
+                            <li><i class="fas fa-screw"></i> أجهزة تثبيت العظام - Bone Fixation Systems</li>
+                            <li><i class="fas fa-wheelchair"></i> جهاز فحص الحركة - Motion Analysis System</li>
+                            <li><i class="fas fa-magnet"></i> جهاز الرنين المغناطيسي للمفاصل - Joint MRI</li>
+                            <li><i class="fas fa-radiation"></i> جهاز الأشعة السينية المتنقل - Portable X-Ray</li>
+                            <li><i class="fas fa-hand-rock"></i> جهاز قياس قوة العضلات - Muscle Strength Tester</li>
+                            <li><i class="fas fa-bone"></i> جهاز زراعة العظام - Bone Graft System</li>
+                            <li><i class="fas fa-handshake"></i> جهاز إعادة تأهيل المفاصل - Joint Rehabilitation Device</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص العصبية -->
+                <div class="specialty-card fade-in-up" data-delay="0.7s" data-category="neurology">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>طبيب العصبية</h3>
+                        <p>أجهزة متقدمة لتشخيص وعلاج الأمراض العصبية</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-brain"></i> جهاز تخطيط الدماغ - EEG Machine</li>
+                            <li><i class="fas fa-magnet"></i> جهاز الرنين المغناطيسي للدماغ - Brain MRI</li>
+                            <li><i class="fas fa-pulse"></i> جهاز تخطيط الأعصاب - EMG/NCV System</li>
+                            <li><i class="fas fa-eye"></i> جهاز فحص قاع العين العصبي - Neuro-Ophthalmology Equipment</li>
+                            <li><i class="fas fa-hammer"></i> مطرقة الفحص العصبي - Neurological Reflex Hammer</li>
+                            <li><i class="fas fa-wave-square"></i> جهاز الموجات فوق الصوتية للأعصاب - Nerve Ultrasound</li>
+                            <li><i class="fas fa-radiation"></i> جهاز التصوير المقطاعي للدماغ - Brain CT Scanner</li>
+                            <li><i class="fas fa-stethoscope"></i> سماعة الأعصاب - Neurology Stethoscope</li>
+                            <li><i class="fas fa-handshake"></i> جهاز قياس قوة العضلات العصبية - Neurological Strength Tester</li>
+                            <li><i class="fas fa-balance-scale"></i> ميزان التوازن العصبي - Neurological Balance Scale</li>
+                            <li><i class="fas fa-eye-dropper"></i> جهاز فحص السوائل الدماغية - CSF Analysis</li>
+                            <li><i class="fas fa-brain"></i> جهاز تحفيز الدماغ - Brain Stimulation Device</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص الجراحة -->
+                <div class="specialty-card fade-in-up" data-delay="0.6s" data-category="surgery">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>طبيب الجراحة</h3>
+                        <p>أدوات جراحية متطورة وآمنة</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-microscope"></i> المجهر الجراحي</li>
+                            <li><i class="fas fa-camera"></i> جهاز التصوير الجراحي</li>
+                            <li><i class="fas fa-ethernet"></i> جهاز التنظير الداخلي</li>
+                            <li><i class="fas fa-tint"></i> جهاز الشفط الجراحي</li>
+                            <li><i class="fas fa-radiation"></i> جهاز التتبع الإشعاعي</li>
+                            <li><i class="fas fa-heartbeat"></i> جهاز مراقبة المريض</li>
+                            <li><i class="fas fa-stethoscope"></i> جهاز تنفس اصطناعي</li>
+                            <li><i class="fas fa-shield-alt"></i> أجهزة التعقيم الجراحي</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص النساء -->
+                <div class="specialty-card fade-in-up" data-delay="0.7s" data-category="gynecology">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>طبيب النساء والولادة</h3>
+                        <p>أجهزة متخصصة لرعاية صحة المرأة</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-baby"></i> جهاز مراقبة الجنين - Fetal Monitor</li>
+                            <li><i class="fas fa-sound"></i> جهاز الموجات فوق الصوتية للحوامل - Obstetric Ultrasound</li>
+                            <li><i class="fas fa-stethoscope"></i> منظار عنق الرحم - Colposcope</li>
+                            <li><i class="fas fa-camera-retro"></i> كاميرا المهبل الرقمية - Digital Vaginal Camera</li>
+                            <li><i class="fas fa-shield-alt"></i> جهاز التلقيح الصناعي - IUI Equipment</li>
+                            <li><i class="fas fa-syringe"></i> جهاز سحب البويضات - Oocyte Retrieval System</li>
+                            <li><i class="fas fa-microscope"></i> مختبر الإخصاب - Embryology Lab Equipment</li>
+                            <li><i class="fas fa-heartbeat"></i> جهاز مراقبة المخاض - Labor Monitor</li>
+                            <li><i class="fas fa-wave-square"></i> جهاز فحص عنق الرحم - Cervical Screening</li>
+                            <li><i class="fas fa-baby"></i> سرير الولادة المتطور - Advanced Delivery Table</li>
+                            <li><i class="fas fa-sound"></i> جهاز قياس نبضات الجنين - Fetal Doppler</li>
+                            <li><i class="fas fa-shield-alt"></i> أجهزة التعقيم النسائية - Gynecological Sterilizers</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص الأطفال -->
+                <div class="specialty-card fade-in-up" data-delay="0.8s" data-category="pediatrics">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>طبيب الأطفال</h3>
+                        <p>أجهزة آمنة ومناسبة للأطفال</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-baby"></i> حضانة حديثي الولادة - Neonatal Incubator</li>
+                            <li><i class="fas fa-syringe"></i> جهاز الحقن الآلي للأطفال - Auto Injector</li>
+                            <li><i class="fas fa-stethoscope"></i> سماعة طبية للأطفال - Pediatric Stethoscope</li>
+                            <li><i class="fas fa-thermometer-half"></i> ميزان حرارة رقمي للأطفال - Digital Thermometer</li>
+                            <li><i class="fas fa-chart-line"></i> جهاز قياس النمو - Growth Monitor</li>
+                            <li><i class="fas fa-sound"></i> جهاز فحص السمع للأطفال - Pediatric Audiometer</li>
+                            <li><i class="fas fa-heartbeat"></i> جهاز قياس ضغط الدم للأطفال - Pediatric BP Monitor</li>
+                            <li><i class="fas fa-shield-alt"></i> أجهزة التعقيم الآمنة - Child-Safe Sterilizers</li>
+                            <li><i class="fas fa-lungs"></i> جهاز التنفس للأطفال - Pediatric Ventilator</li>
+                            <li><i class="fas fa-baby"></i> سرير فحص الأطفال - Pediatric Examination Table</li>
+                            <li><i class="fas fa-syringe"></i> مقياس فيتامين د للأطفال - Vitamin D Meter</li>
+                            <li><i class="fas fa-child"></i> ألعاب تشخيصية للأطفال - Pediatric Assessment Toys</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+
+                <!-- تخصص الطوارئ -->
+                <div class="specialty-card fade-in-up" data-delay="0.9s" data-category="emergency">
+                    <div class="specialty-header">
+                        <div class="specialty-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h3>طبيب الطوارئ</h3>
+                        <p>أجهزة طوارئ وحالات إسعافية</p>
+                    </div>
+                    <div class="specialty-devices">
+                        <h4>الأجهزة المطلوبة:</h4>
+                        <ul>
+                            <li><i class="fas fa-heartbeat"></i> جهاز الصدمات الكهربائية - Emergency Defibrillator</li>
+                            <li><i class="fas fa-lungs"></i> جهاز التنفس الاصطناعي - Emergency Ventilator</li>
+                            <li><i class="fas fa-stethoscope"></i> جهاز مراقبة المريض المتقدم - Advanced Patient Monitor</li>
+                            <li><i class="fas fa-syringe"></i> مضخة الحقن التلقائية - Auto Infusion Pump</li>
+                            <li><i class="fas fa-blood"></i> جهاز تحليل الدم السريع - Point-of-Care Blood Analyzer</li>
+                            <li><i class="fas fa-thermometer-half"></i> ميزان حرارة سريع - Rapid Thermometer</li>
+                            <li><i class="fas fa-ambulance"></i> سرير نقل الطوارئ - Emergency Stretcher</li>
+                            <li><i class="fas fa-shield-alt"></i> جهاز الإنعاش القلبي الرئوي - CPR Machine</li>
+                            <li><i class="fas fa-flask"></i> جهاز تحليل الغازات في الدم - Blood Gas Analyzer</li>
+                            <li><i class="fas fa-bolt"></i> جهاز تنظيم ضربات الطوارئ - Emergency Pacemaker</li>
+                            <li><i class="fas fa-sound"></i> جهاز الموجات فوق الصوتية للطوارئ - Emergency Ultrasound</li>
+                            <li><i class="fas fa-ambulance"></i> عربة الطوارئ المتنقلة - Mobile Emergency Cart</li>
+                        </ul>
+                    </div>
+                    <div class="specialty-actions">
+                        <a href="products.html" class="btn btn-primary ripple-effect">استكشف المنتجات</a>
+                        <a href="contact.html" class="btn btn-outline ripple-effect">طلب عرض سعر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المزايا -->
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">مزايا خاصة</span>
+                <h2 class="section-title">لماذا تختار متجر الطب؟</h2>
+                <p class="section-description">مزايا خاصة للأطباء والمؤسسات الطبية</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in-up" data-delay="0.1s">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>أسعار طبية مخفضة</h3>
+                    <p>أسعار حصرية للأطباء والمستشفيات</p>
+                </div>
+                <div class="benefit-card fade-in-up" data-delay="0.2s">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>ضمان ممتد</h3>
+                    <p>ضمان شامل وصيانة مجانية لمدة سنة</p>
+                </div>
+                <div class="benefit-card fade-in-up" data-delay="0.3s">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>تدريب مجاني</h3>
+                    <p>برامج تدريبية لاستخدام وصيانة الأجهزة</p>
+                </div>
+                <div class="benefit-card fade-in-up" data-delay="0.4s">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل سريع</h3>
+                    <p>توصيل مجاني وسريع لجميع المحافظات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="remember-me">
+              <span class="checkmark"></span>
+              تذكرني
+            </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+          </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="agree-terms" required>
+              <span class="checkmark"></span>
+              أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+            </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-user-plus"></i> إنشاء حساب
+          </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <!-- سيتم إضافة عناصر السلة هنا عبر JavaScript -->
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-credit-card"></i> إتمام الشراء
+      </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-chevron-left"></i> الأطباء</a></li>
+                        <li><a href="tips.html"><i class="fas fa-chevron-left"></i> النصائح</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad3d4dcd5fad7dfded3d9dbd6c9ced5c8df94d9d5d7">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // البحث والتصفية
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('doctor-search');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const quickFilterButtons = document.querySelectorAll('.quick-filter-btn');
+            const specialtyCards = document.querySelectorAll('.specialty-card');
+            const filterDropdownBtn = document.getElementById('filter-dropdown-btn');
+            const filterDropdown = document.querySelector('.filter-dropdown');
+            const filterDropdownContent = document.getElementById('filter-dropdown-content');
+
+            // Toggle dropdown functionality
+            filterDropdownBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                filterDropdownContent.style.display = filterDropdownContent.style.display === 'block' ? 'none' : 'block';
+                filterDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!filterDropdown.contains(e.target)) {
+                    filterDropdownContent.style.display = 'none';
+                    filterDropdown.classList.remove('active');
+                }
+            });
+
+            // تصفية التخصصات (both dropdown and quick filter buttons)
+            const allFilterButtons = [...filterButtons, ...quickFilterButtons];
+            allFilterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // إزالة الفئة النشطة من جميع الأزرار
+                    allFilterButtons.forEach(btn => btn.classList.remove('active'));
+                    // إضافة الفئة النشطة للزر المحدد
+                    this.classList.add('active');
+
+                    // تحديث dropdown button text
+                    const selectedText = this.textContent.trim();
+                    filterDropdownBtn.querySelector('span').textContent = selectedText;
+                    
+                    // تطبيق التصفية
+                    filterSpecialties('', filter);
+                    
+                    // إغلاق dropdown إذا كان مفتوحاً
+                    filterDropdownContent.style.display = 'none';
+                    filterDropdown.classList.remove('active');
+                });
+            });
+
+            function filterSpecialties(searchTerm = '', filter = 'all') {
+                specialtyCards.forEach(card => {
+                    const specialtyText = card.textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+
+                    let showCard = true;
+
+                    // تطبيق البحث النصي
+                    if (searchTerm && !specialtyText.includes(searchTerm)) {
+                        showCard = false;
+                    }
+
+                    // تطبيق تصفية الفئة
+                    if (filter !== 'all' && category !== filter) {
+                        showCard = false;
+                    }
+
+                    // عرض/إخفاء البطاقة
+                    if (showCard) {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // عدادات الإحصائيات
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.textContent);
+                        let current = 0;
+                        const increment = target / 50;
+                        
+                        const updateCounter = () => {
+                            if (current < target) {
+                                current += increment;
+                                counter.textContent = Math.floor(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target;
+                            }
+                        };
+                        
+                        updateCounter();
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            });
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+        });
+    </script>
+</body>
+
+</html>

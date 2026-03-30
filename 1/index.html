@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>متجر الطب العالمي - أحدث الأجهزة الطبية</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي المحسن -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-crown"></i>
+                <span>الأفضل في العراق</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">أحدث الأجهزة الطبية</span>
+                <span class="title-highlight">بجودة عالمية</span>
+            </h1>
+            <p class="hero-description">
+                نوفر لك أحدث الأجهزة الطبية بأعلى جودة وأفضل الأسعار مع ضمان الجودة والدعم الفني المتخصص
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">عميل راضٍ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="2000">0</div>
+                    <div class="stat-label">منتج متاح</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-label">سنوات خبرة</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>تسوق الآن</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="offers.html" class="btn btn-outline btn-large">
+                    <i class="fas fa-fire"></i>
+                    <span>العروض الحصرية</span>
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ضمان شامل</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <span>شحن مجاني</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <span>دعم 24/7</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات المتحركة -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="500">0</div>
+                    <div class="stat-label">مؤسسة صحية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="2000">0</div>
+                    <div class="stat-label">منتج طبي</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="50">0</div>
+                    <div class="stat-label">موظف متخصص</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="10">0</div>
+                    <div class="stat-label">سنوات خبرة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم كيف نعمل -->
+    <section class="how-we-work-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">كيف نعمل</h2>
+                <p class="section-description">عملية بسيطة ومضمونة للحصول على أفضل الأجهزة الطبية</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>اختر منتجك</h3>
+                        <p>تصفح مجموعتنا الواسعة من الأجهزة الطبية واختر ما يناسب احتياجاتك</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>أضف للسلة</h3>
+                        <p>أضف المنتجات المختارة لسلة التسوق بسهولة وأمان</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>ادفع بأمان</h3>
+                        <p>اختر طريقة الدفع المفضلة لديك وادفع بأمان تام</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>استلم طلبك</h3>
+                        <p>سنوصل طلبك بأمان وفي أسرع وقت ممكن</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المميزات والخدمات -->
+    <section class="section features-highlight">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">لماذا نحن الأفضل</span>
+                <h2 class="section-title">مميزاتنا الفريدة</h2>
+                <p class="section-description">نوفر لك أفضل تجربة تسوق للأجهزة الطبية</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>جودة عالمية</h3>
+                    <p>أجهزة طبية من أفضل العلامات التجارية العالمية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ضمان شامل</h3>
+                    <p>ضمان ممتد وصيانة مجانية لجميع الأجهزة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>توصيل سريع</h3>
+                    <p>توصيل مجاني وسريع لجميع أنحاء العراق</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>فريق متخصص</h3>
+                    <p>فنيون مدربون على أعلى مستوى من الاحترافية</p>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="products.html" class="btn btn-primary">
+                    <i class="fas fa-eye"></i>
+                    تصفح جميع المنتجات
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fas fa-phone"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">خدماتنا</span>
+                <h2 class="section-title">لماذا تختارنا؟</h2>
+                <p class="section-description">نقدم مجموعة شاملة من الخدمات المتميزة</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل سريع</h3>
+                    <p>توصيل سريع وآمن لجميع أنحاء العراق مع إمكانية التتبع المباشر</p>
+                    <div class="service-badge">مجاني</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>تركيب وصيانة</h3>
+                    <p>فريق فني متخصص لتركيب وصيانة جميع الأجهزة الطبية</p>
+                    <div class="service-badge">متاح</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ضمان شامل</h3>
+                    <p>ضمان شامل على جميع الأجهزة مع خدمة ما بعد البيع</p>
+                    <div class="service-badge">ضمان</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني</h3>
+                    <p>فريق دعم فني متاح 24/7 لحل جميع الاستفسارات والمشاكل</p>
+                    <div class="service-badge">24/7</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم شهادات العملاء -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">آراء العملاء</span>
+                <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+                <p class="section-description">تجارب حقيقية من عملائنا الكرام</p>
+            </div>
+            <div class="testimonials-carousel">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"خدمة ممتازة وجودة عالية في المنتجات. لقد ساعدونا كثيراً في تجهيز عيادتنا بالأجهزة المناسبة."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face" alt="د. أحمد محمد">
+                        </div>
+                        <div class="author-info">
+                            <h4>د. أحمد محمد</h4>
+                            <span>طبيب عام - بغداد</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"فريق محترف وخدمة عملاء راقية. الدعم الفني متاح دائماً وحل المشاكل سريع."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face" alt="مستشفى النور">
+                        </div>
+                        <div class="author-info">
+                            <h4>مستشفى النور</h4>
+                            <span>إدارة المشتريات - البصرة</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"أسعار تنافسية وجودة مضمونة. ننصح بالتعامل معهم لأي مؤسسة صحية."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1594824757449-1da0a4fa4813?w=150&h=150&fit=crop&crop=face" alt="د. فاطمة علي">
+                        </div>
+                        <div class="author-info">
+                            <h4>د. فاطمة علي</h4>
+                            <span>طبيبة نساء - كربلاء</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="nav-dot active" data-slide="0"></button>
+                <button class="nav-dot" data-slide="1"></button>
+                <button class="nav-dot" data-slide="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العروض الخاصة -->
+    <section class="section special-offers">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">عروض حصرية</span>
+                <h2 class="section-title">عروض خاصة</h2>
+                <p class="section-description">لا تفوت هذه العروض المحدودة</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-badge">خصم 20%</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>خصم شامل</h3>
+                    <p>خصم 20% على جميع الأجهزة الطبية</p>
+                    <div class="offer-details">
+                        <span class="offer-price">بدايةً من 40,000 دينار</span>
+                        <span class="offer-original-price">50,000 دينار</span>
+                    </div>
+                    <a href="offers.html" class="btn btn-primary">استكشف العروض</a>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">شحن مجاني</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل مجاني</h3>
+                    <p>شحن مجاني لجميع الطلبات فوق 1,000,000 دينار</p>
+                    <div class="offer-details">
+                        <span class="offer-price">توفير يصل إلى 50,000 دينار</span>
+                    </div>
+                    <a href="products.html" class="btn btn-primary">تسوق الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم النشرة البريدية -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>ابق على اطلاع بأحدث العروض</h2>
+                    <p>اشترك في نشرتنا البريدية واحصل على أحدث العروض والمنتجات الجديدة</p>
+                </div>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            اشتراك
+                        </button>
+                    </div>
+                    <p class="newsletter-note">نعدك بعدم إرسال رسائل مزعجة. يمكنك إلغاء الاشتراك في أي وقت.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المدونة/الأخبار -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">أحدث الأخبار</span>
+                <h2 class="section-title">مدونة متجر الطب</h2>
+                <p class="section-description">آخر الأخبار والنصائح في عالم الأجهزة الطبية</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop" alt="أحدث التقنيات الطبية">
+                        <div class="blog-category">تقنيات جديدة</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                15 ديسمبر 2025
+                            </span>
+                            <span class="blog-author">
+                                <i class="fas fa-user"></i>
+                                د. أحمد محمد
+                            </span>
+                        </div>
+                        <h3>أحدث التقنيات في الأجهزة الطبية</h3>
+                        <p>تعرف على أحدث التطورات في مجال الأجهزة الطبية وكيف يمكنها تحسين جودة الرعاية الصحية.</p>
+                        <a href="#" class="read-more">
+                            <span>اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=250&fit=crop" alt="صيانة الأجهزة">
+                        <div class="blog-category">نصائح</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                12 ديسمبر 2025
+                            </span>
+                            <span class="blog-author">
+                                <i class="fas fa-user"></i>
+                                فني متخصص
+                            </span>
+                        </div>
+                        <h3>كيفية الحفاظ على الأجهزة الطبية</h3>
+                        <p>نصائح مهمة للحفاظ على أجهزتك الطبية وضمان عمر أطول وأداء أفضل.</p>
+                        <a href="#" class="read-more">
+                            <span>اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop" alt="اختيار الجهاز المناسب">
+                        <div class="blog-category">دليل</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                10 ديسمبر 2025
+                            </span>
+                            <span class="blog-author">
+                                <i class="fas fa-user"></i>
+                                فريق متجر الطب
+                            </span>
+                        </div>
+                        <h3>دليل اختيار الجهاز الطبي المناسب</h3>
+                        <p>دليل شامل لمساعدتك في اختيار الجهاز الطبي المناسب لاحتياجاتك.</p>
+                        <a href="#" class="read-more">
+                            <span>اقرأ المزيد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            <div class="section-cta">
+                <a href="#" class="btn btn-outline">
+                    <i class="fas fa-blog"></i>
+                    عرض جميع المقالات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة المنتج المكبرة -->
+    <div class="product-modal" id="product-modal">
+        <div class="product-modal-content">
+            <div class="product-modal-header">
+                <h3 class="product-modal-title" id="modal-product-title">اسم المنتج</h3>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="product-modal-body">
+                <div class="product-modal-image">
+                    <img id="modal-product-image" src="img/المستقبل.png" alt="صورة المنتج" />
+                </div>
+                <div class="product-modal-info">
+                    <div class="rating">
+                        <div class="stars" id="modal-product-rating"></div>
+                        <span class="rating-count" id="modal-rating-count">(0 تقييم)</span>
+                    </div>
+                    <div class="product-modal-price" id="modal-product-price">0 دينار</div>
+                    <div class="product-modal-description">
+                        <p id="modal-product-description">
+                            هذا المنتج من أفضل الأجهزة الطبية في فئته، يتميز بجودة تصنيع عالية ودقة في النتائج وسهولة في الاستخدام.
+                        </p>
+                    </div>
+                    <div class="product-modal-features">
+                        <h4>المميزات الرئيسية:</h4>
+                        <ul id="modal-product-features">
+                            <!-- سيتم إضافة المميزات عبر JavaScript -->
+                        </ul>
+                    </div>
+                    <div class="product-modal-actions">
+                        <button class="btn btn-primary" id="modal-add-to-cart">
+              <i class="fas fa-cart-plus"></i> إضافة للسلة
+            </button>
+                        <button class="btn btn-outline">
+              <i class="fas fa-heart"></i> المفضلة
+            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="remember-me">
+              <span class="checkmark"></span>
+              تذكرني
+            </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+          </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+              <input type="checkbox" id="agree-terms" required>
+              <span class="checkmark"></span>
+              أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+            </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+            <i class="fas fa-user-plus"></i> إنشاء حساب
+          </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <!-- سيتم إضافة عناصر السلة هنا عبر JavaScript -->
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-credit-card"></i> إتمام الشراء
+      </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50393e363f103d35343933313c23243f22357e333f3d">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // تأثير العد التصاعدي للأرقام
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // سرعة العد التصاعدي
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / speed;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // تشغيل العد التصاعدي عند ظهور العناصر
+        function setupCounterObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        }
+
+        // نظام شهادات العملاء المتحرك
+        function setupTestimonialsCarousel() {
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            const dots = document.querySelectorAll('.nav-dot');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                // إخفاء جميع الشهادات
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('active');
+                });
+                
+                // إزالة التفعيل من جميع النقاط
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+
+                // إظهار الشهادة والنقطة النشطة
+                if (testimonials[index]) {
+                    testimonials[index].classList.add('active');
+                }
+                if (dots[index]) {
+                    dots[index].classList.add('active');
+                }
+            }
+
+            // التنقل بالنقاط
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+
+            // التنقل التلقائي
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % testimonials.length;
+                showSlide(currentSlide);
+            }, 5000);
+        }
+
+        // تأثيرات التمرير للعناصر
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // مراقبة العناصر التي يجب تحريكها
+            const animatedElements = document.querySelectorAll('.service-card, .step-item, .blog-card');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // تأثير موجي للأزرار
+        function setupButtonRipple() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = this.querySelector('.btn-ripple');
+                    if (!ripple) return;
+
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('active');
+
+                    setTimeout(() => {
+                        ripple.classList.remove('active');
+                    }, 600);
+                });
+            });
+        }
+
+        // تفعيل جميع التأثيرات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            setupCounterObserver();
+            setupTestimonialsCarousel();
+            setupScrollAnimations();
+            setupButtonRipple();
+            
+            // تفعيل المنتجات المميزة
+            if (typeof displayFeaturedProducts === 'function') {
+                displayFeaturedProducts();
+            }
+        });
+
+        // تأثير الشريط العلوي المتفاعل
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
+    <div class="overlay" id="overlay"></div>
+</body>
+
+</html>

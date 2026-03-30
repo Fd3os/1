@@ -1,0 +1,61 @@
+═══════════════════════════════════════════════════════════════
+متجر الطب العالمي - نشر أون لاين سريع 🚀
+═══════════════════════════════════════════════════════════════
+
+📋 ملخص الخطوات السريعة:
+
+1️⃣ DATABASE (MongoDB Atlas)
+─────────────────────────────
+□ اذهب إلى: https://www.mongodb.com/cloud/atlas/register
+□ أنشئ حساب واختر Free Tier
+□ أنشئ Cluster جديد
+□ أضف Database User: medical_store / password
+□ انسخ Connection String
+□ أضفها في متغيرات Render البيئة
+
+2️⃣ BACKEND (Render)
+─────────────────────────────
+□ ادفع الكود إلى GitHub (git push)
+□ اذهب إلى: https://render.com
+□ اضغط: New Web Service
+□ اختر GitHub repository
+□ أسم الخدمة: medical-store-api
+□ Build: npm install
+□ Start: npm start
+□ أضف متغيرات البيئة:
+   - MONGODB_URI = من MongoDB Atlas
+   - JWT_SECRET = عبارة عشوائية قوية
+   - NODE_ENV = production
+□ اضغط Create
+
+ستحصل على: https://medical-store-api.onrender.com
+
+3️⃣ FRONTEND (Vercel)
+─────────────────────────────
+□ عدّل api.js:
+   const API_BASE_URL = 'https://medical-store-api.onrender.com/api';
+□ ادفع إلى GitHub
+□ اذهب إلى: https://vercel.com
+□ اضغط: Import Project
+□ اختر GitHub repository
+□ اضغط: Deploy
+
+ستحصل على: https://your-app.vercel.app
+
+═══════════════════════════════════════════════════════════════
+
+✅ موقعك أون لاين!
+
+Frontend: https://your-app.vercel.app
+Backend:  https://medical-store-api.onrender.com
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ ملاحظات مهمة:
+
+- Render قد يستغرق 5-15 دقائق للـ Deploy الأول
+- تأكد من إضافة كل متغيرات البيئة قبل الـ Deploy
+- MongoDB Atlas مجاني لـ 512 MB (كافي للبدء)
+- Vercel مجاني مع unlimited requests
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المنتجات - متجر الطب العالمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* قائمة التصفية المنسدلة */
+        .filter-dropdown {
+            position: relative;
+            z-index: 100;
+        }
+
+        .filter-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e1e8ed;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .filter-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .filter-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid white;
+        }
+
+        .filter-menu::after {
+            content: '';
+            position: absolute;
+            top: -9px;
+            right: 19px;
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-bottom: 9px solid #e1e8ed;
+            z-index: -1;
+        }
+
+        /* رأس القائمة */
+        .filter-menu-header {
+            padding: 20px 20px 15px;
+            border-bottom: 1px solid #f1f3f4;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+        }
+
+        .filter-menu-header h4 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-menu-header h4 i {
+            color: #667eea;
+        }
+
+        /* مجموعات التصفية */
+        .filter-group {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .filter-group:last-child {
+            border-bottom: none;
+        }
+
+        .filter-group h5 {
+            margin: 0 0 12px;
+            color: #495057;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-group h5 i {
+            font-size: 12px;
+            color: #667eea;
+        }
+
+        /* البحث */
+        .search-box {
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8e9297;
+            font-size: 14px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 40px 10px 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* مربعات الاختيار */
+        .checkbox-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .checkbox-item:hover {
+            background: #e9ecef;
+        }
+
+        .checkbox-item input {
+            display: none;
+        }
+
+        .checkbox-item input:checked + .checkbox-label {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .checkbox-item input:checked ~ .checkbox-item {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .checkbox-item.selected {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .checkbox-label {
+            font-size: 13px;
+            color: #495057;
+            transition: all 0.2s ease;
+        }
+
+        /* مدخلات السعر */
+        .price-inputs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-inputs input {
+            flex: 1;
+            padding: 8px 10px;
+            border: 2px solid #e1e8ed;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .price-inputs input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .price-inputs span {
+            color: #6c757d;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* أزرار الإجراءات */
+        .filter-actions {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+            position: sticky;
+            bottom: 0;
+        }
+
+        .filter-actions button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-apply:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-reset {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-reset:hover {
+            background: #f8f9ff;
+            transform: translateY(-1px);
+        }
+
+        /* شريط الأدوات */
+        .products-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* زر التصفية المحسن */
+        .filter-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            position: relative;
+        }
+
+        .filter-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .filter-toggle.active {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .filter-toggle i {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-toggle:hover i {
+            transform: rotate(90deg);
+        }
+
+        /* تغطية الخلفية */
+        .filter-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .filter-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* شبكة المنتجات */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .rating-count {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        /* استجابة */
+        @media (max-width: 768px) {
+            .filter-menu {
+                width: 320px;
+                right: -10px;
+            }
+            
+            .products-toolbar {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .toolbar-left {
+                justify-content: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-menu {
+                width: calc(100vw - 40px);
+                right: -20px;
+                left: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .filter-toggle {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+            
+            .filter-toggle i {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="IMG/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html" class="active">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم المنتجات -->
+    <section class="section" id="products">
+        <div class="container">
+            <!-- شريط البحث والأدوات -->
+            <div class="products-toolbar">
+                <div class="toolbar-left">
+                    <!-- قائمة التصفية المنسدلة -->
+                    <div class="filter-dropdown">
+                        <button class="filter-toggle" id="filter-toggle" onclick="toggleFilterDropdown()">
+                            <i class="fas fa-filter"></i>
+                            <span>التصفية</span>
+                            <i class="fas fa-chevron-down" id="filter-arrow" style="margin-right: 4px; font-size: 12px; transition: transform 0.3s ease;"></i>
+                        </button>
+                        
+                        <!-- القائمة المنسدلة -->
+                        <div class="filter-menu" id="filter-menu">
+                            <div class="filter-menu-header">
+                                <h4><i class="fas fa-sliders-h"></i> تصفية المنتجات</h4>
+                            </div>
+                            
+                            <!-- البحث -->
+                            <div class="filter-group">
+                                <h5><i class="fas fa-search"></i> البحث</h5>
+                                <div class="search-box">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="product-search" placeholder="ابحث عن منتج..." oninput="filterProducts()" />
+                                </div>
+                            </div>
+
+                            <!-- التصنيفات -->
+                            <div class="filter-group">
+                                <h5><i class="fas fa-th-large"></i> التصنيفات</h5>
+                                <div class="checkbox-row">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="category" value="diagnostic" onchange="filterProducts()" />
+                                        <span class="checkbox-label">أجهزة التشخيص</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="category" value="imaging" onchange="filterProducts()" />
+                                        <span class="checkbox-label">أجهزة الأشعة</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="category" value="lab" onchange="filterProducts()" />
+                                        <span class="checkbox-label">أجهزة المختبر</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="category" value="treatment" onchange="filterProducts()" />
+                                        <span class="checkbox-label">أجهزة العلاج</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="category" value="monitoring" onchange="filterProducts()" />
+                                        <span class="checkbox-label">أجهزة المراقبة</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- نطاق السعر -->
+                            <div class="filter-group">
+                                <h5><i class="fas fa-dollar-sign"></i> نطاق السعر</h5>
+                                <div class="price-inputs">
+                                    <input type="number" id="min-price" placeholder="من" min="0" onchange="filterProducts()" />
+                                    <span>إلى</span>
+                                    <input type="number" id="max-price" placeholder="إلى" min="0" onchange="filterProducts()" />
+                                </div>
+                            </div>
+
+                            <!-- التقييم -->
+                            <div class="filter-group">
+                                <h5><i class="fas fa-star"></i> التقييم</h5>
+                                <div class="checkbox-row">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="rating" value="5" onchange="filterProducts()" />
+                                        <span class="checkbox-label">⭐⭐⭐⭐⭐</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="rating" value="4" onchange="filterProducts()" />
+                                        <span class="checkbox-label">⭐⭐⭐⭐</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="rating" value="3" onchange="filterProducts()" />
+                                        <span class="checkbox-label">⭐⭐⭐</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- أزرار الإجراءات -->
+                            <div class="filter-actions">
+                                <button class="btn-apply" onclick="applyFilters()">
+                                    <i class="fas fa-check"></i> تطبيق
+                                </button>
+                                <button class="btn-reset" onclick="resetFilters()">
+                                    <i class="fas fa-redo"></i> إعادة تعيين
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-count">
+                        <span id="results-count">عرض 200 منتج</span>
+                    </div>
+                </div>
+                <div class="toolbar-right">
+                    <div class="sort-controls">
+                        <select id="sort-select" onchange="sortProducts()">
+                            <option value="default">الترتيب الافتراضي</option>
+                            <option value="price-low">السعر: من الأقل للأعلى</option>
+                            <option value="price-high">السعر: من الأعلى للأقل</option>
+                            <option value="name">الاسم أبجدياً</option>
+                            <option value="newest">الأحدث</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- شبكة المنتجات -->
+            <div class="products-grid" id="products-grid">
+                <!-- سيتم إضافة المنتجات عبر JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- طبقة التغطية -->
+    <div class="filter-overlay" id="filter-overlay" onclick="closeFilterDropdown()"></div>
+
+    <!-- سلة التسوق -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-credit-card"></i> إتمام الشراء
+            </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="IMG/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // JavaScript خاص بقائمة التصفية المنسدلة
+        let isFilterOpen = false;
+
+        // فتح/إغلاق القائمة المنسدلة
+        function toggleFilterDropdown() {
+            const menu = document.getElementById('filter-menu');
+            const overlay = document.getElementById('filter-overlay');
+            const arrow = document.getElementById('filter-arrow');
+            const toggle = document.getElementById('filter-toggle');
+            
+            isFilterOpen = !isFilterOpen;
+            
+            if (isFilterOpen) {
+                menu.classList.add('active');
+                overlay.classList.add('active');
+                toggle.classList.add('active');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                toggle.classList.remove('active');
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // إغلاق القائمة المنسدلة
+        function closeFilterDropdown() {
+            if (isFilterOpen) {
+                toggleFilterDropdown();
+            }
+        }
+
+        // إغلاق عند الضغط على ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isFilterOpen) {
+                closeFilterDropdown();
+            }
+        });
+
+        // عرض المنتجات
+        function displayProducts(filteredProducts = products) {
+            const productsGrid = document.getElementById('products-grid');
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = '';
+            
+            filteredProducts.forEach((product, index) => {
+                const productCard = createProductCard(product, index);
+                productsGrid.appendChild(productCard);
+            });
+            
+            updateResultsCount(filteredProducts.length);
+        }
+
+        // إنشاء بطاقة المنتج
+        function createProductCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            card.innerHTML = `
+                <div class="product-badge">جديد</div>
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">${product.name}</h3>
+                    <div class="product-price">${formatPrice(product.price)} دينار</div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            ${generateStars(product.rating)}
+                        </div>
+                        <span class="rating-count">(${product.ratingCount} تقييم)</span>
+                    </div>
+                    <button class="btn btn-primary add-to-cart" onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                        <i class="fas fa-shopping-cart"></i> إضافة للسلة
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // دالة التصفية
+        function filterProducts() {
+            const searchTerm = document.getElementById('product-search')?.value.toLowerCase() || '';
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+            const minPrice = parseInt(document.getElementById('min-price')?.value) || 0;
+            const maxPrice = parseInt(document.getElementById('max-price')?.value) || Infinity;
+            
+            let filtered = products.filter(product => {
+                const matchesSearch = !searchTerm || product.name.toLowerCase().includes(searchTerm);
+                const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+                const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+                
+                return matchesSearch && matchesCategory && matchesPrice;
+            });
+            
+            displayProducts(filtered);
+        }
+
+        // تطبيق الفلاتر
+        function applyFilters() {
+            filterProducts();
+            closeFilterDropdown();
+            showToast('تم تطبيق الفلاتر', 'success');
+        }
+
+        // إعادة تعيين الفلاتر
+        function resetFilters() {
+            document.getElementById('product-search').value = '';
+            document.getElementById('min-price').value = '';
+            document.getElementById('max-price').value = '';
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            
+            displayProducts();
+            closeFilterDropdown();
+            showToast('تم إعادة تعيين الفلاتر', 'success');
+        }
+
+        // ترتيب المنتجات
+        function sortProducts() {
+            const sortValue = document.getElementById('sort-select').value;
+            let sorted = [...products];
+            
+            switch (sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+                    break;
+                case 'newest':
+                    sorted.sort((a, b) => b.year - a.year);
+                    break;
+            }
+            
+            displayProducts(sorted);
+        }
+
+        // تحديث عدد النتائج
+        function updateResultsCount(count) {
+            const resultsCount = document.getElementById('results-count');
+            if (resultsCount) {
+                resultsCount.textContent = `عرض ${count} منتج`;
+            }
+        }
+
+        // تهيئة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts();
+        });
+    </script>
+</body>
+</html>

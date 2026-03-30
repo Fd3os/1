@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المنتجات - متجر الطب العالمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="filter-enhancements.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="IMG/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html" class="active">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البحث والتصفية -->
+    <section class="section" id="products">
+        <div class="container">
+            <!-- شريط البحث والأدوات -->
+            <div class="products-toolbar">
+                <div class="toolbar-left">
+                    <button class="filter-toggle" id="filter-toggle" onclick="toggleFilterSidebar()">
+                        <i class="fas fa-filter"></i>
+                        <span>التصفية</span>
+                    </button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="product-search" placeholder="ابحث عن منتج..." />
+                    </div>
+                    <div class="results-count">
+                        <span id="results-count">عرض 200 منتج</span>
+                    </div>
+                </div>
+                <div class="toolbar-right">
+                    <div class="sort-controls">
+                        <select id="sort-select" onchange="sortProducts()">
+                            <option value="default">الترتيب الافتراضي</option>
+                            <option value="price-low">السعر: من الأقل للأعلى</option>
+                            <option value="price-high">السعر: من الأعلى للأقل</option>
+                            <option value="name">الاسم أبجدياً</option>
+                            <option value="newest">الأحدث</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الشريط الجانبي للتصفية (مخفي افتراضياً) -->
+            <aside class="products-sidebar" id="filter-sidebar">
+                <div class="sidebar-header">
+                    <h3>تصفية المنتجات</h3>
+                    <button class="close-sidebar" id="close-sidebar" onclick="toggleFilterSidebar()">&times;</button>
+                </div>
+                
+                <!-- التصنيفات -->
+                <div class="filter-group">
+                    <h4>التصنيفات</h4>
+                    <div class="category-filters">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="category" value="diagnostic" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            أجهزة التشخيص
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="category" value="imaging" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            أجهزة الأشعة
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="category" value="lab" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            أجهزة المختبر
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="category" value="treatment" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            أجهزة العلاج
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="category" value="monitoring" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            أجهزة المراقبة
+                        </label>
+                    </div>
+                </div>
+
+                <!-- نطاق السعر -->
+                <div class="filter-group">
+                    <h4>نطاق السعر</h4>
+                    <div class="price-range">
+                        <div class="price-inputs">
+                            <input type="number" id="min-price" placeholder="من" min="0" onchange="filterProducts()" />
+                            <span>إلى</span>
+                            <input type="number" id="max-price" placeholder="إلى" min="0" onchange="filterProducts()" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التقييم -->
+                <div class="filter-group">
+                    <h4>التقييم</h4>
+                    <div class="rating-filters">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rating" value="5" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rating" value="4" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="rating" value="3" onchange="filterProducts()" />
+                            <span class="checkmark"></span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- أزرار الفلاتر -->
+                <div class="filter-actions">
+                    <button class="btn btn-primary" onclick="applyFilters()">تطبيق</button>
+                    <button class="btn btn-outline" onclick="resetFilters()">إعادة تعيين</button>
+                </div>
+            </aside>
+
+            <!-- شبكة المنتجات -->
+            <div class="products-grid" id="products-grid">
+                <!-- سيتم إضافة المنتجات عبر JavaScript -->
+            </div>
+
+            <!-- شريط التحميل -->
+            <div class="loading-more" id="loading-more" style="display: none;">
+                <div class="spinner"></div>
+                <p>جاري تحميل المزيد من المنتجات...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تسجيل الدخول -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> إنشاء حساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-credit-card"></i> إتمام الشراء
+            </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="IMG/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // JavaScript خاص بصفحة المنتجات
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts();
+            initializeEventListeners();
+        });
+
+        // عرض المنتجات
+        function displayProducts(filteredProducts = products) {
+            const productsGrid = document.getElementById('products-grid');
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = '';
+            
+            filteredProducts.forEach((product, index) => {
+                const productCard = createProductCard(product, index);
+                productsGrid.appendChild(productCard);
+            });
+            
+            updateResultsCount(filteredProducts.length);
+        }
+
+        // إنشاء بطاقة المنتج
+        function createProductCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            card.innerHTML = `
+                <div class="product-badge">جديد</div>
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    <div class="product-actions">
+                        <button class="btn-add-cart" onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})" title="أضف للسلة">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                        <button class="btn-wishlist" title="المفضلة">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="btn-quick-view" onclick="showProductModal(${JSON.stringify(product).replace(/"/g, '&quot;')})" title="معاينة سريعة">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">${product.name}</h3>
+                    <div class="product-meta">
+                        <span class="product-country">${product.country}</span>
+                        <span class="product-year">${product.year}</span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            ${generateStars(product.rating)}
+                        </div>
+                        <span class="rating-count">(${product.ratingCount} تقييم)</span>
+                    </div>
+                    <div class="product-price">${formatPrice(product.price)} دينار</div>
+                    <button class="btn btn-primary add-to-cart" onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                        <i class="fas fa-shopping-cart"></i> إضافة للسلة
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // دالة التصفية
+        function filterProducts() {
+            const searchTerm = document.getElementById('product-search')?.value.toLowerCase() || '';
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+            const minPrice = parseInt(document.getElementById('min-price')?.value) || 0;
+            const maxPrice = parseInt(document.getElementById('max-price')?.value) || Infinity;
+            
+            let filtered = products.filter(product => {
+                const matchesSearch = !searchTerm || product.name.toLowerCase().includes(searchTerm);
+                const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+                const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+                
+                return matchesSearch && matchesCategory && matchesPrice;
+            });
+            
+            displayProducts(filtered);
+        }
+
+        // تطبيق الفلاتر
+        function applyFilters() {
+            filterProducts();
+            toggleFilterSidebar();
+            showToast('تم تطبيق الفلاتر', 'success');
+        }
+
+        // إعادة تعيين الفلاتر
+        function resetFilters() {
+            document.getElementById('product-search').value = '';
+            document.getElementById('min-price').value = '';
+            document.getElementById('max-price').value = '';
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            
+            displayProducts();
+            toggleFilterSidebar();
+            showToast('تم إعادة تعيين الفلاتر', 'success');
+        }
+
+        // ترتيب المنتجات
+        function sortProducts() {
+            const sortValue = document.getElementById('sort-select').value;
+            let sorted = [...products];
+            
+            switch (sortValue) {
+                case 'price-low':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    sorted.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+                    break;
+                case 'newest':
+                    sorted.sort((a, b) => b.year - a.year);
+                    break;
+            }
+            
+            displayProducts(sorted);
+        }
+
+        // تحديث عدد النتائج
+        function updateResultsCount(count) {
+            const resultsCount = document.getElementById('results-count');
+            if (resultsCount) {
+                resultsCount.textContent = `عرض ${count} منتج`;
+            }
+        }
+
+        // توليد النجوم
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // تهيئة المستمعين
+        function initializeEventListeners() {
+            // البحث
+            const searchInput = document.getElementById('product-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', filterProducts);
+            }
+        }
+    </script>
+</body>
+</html>

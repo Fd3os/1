@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اتصل بنا - متجر الطب العالمي</title>
+    <!-- استيراد Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <p>خصم 20% على جميع الأجهزة هذا الأسبوع فقط - توصيل مجاني للطلبات فوق 1,000,000 دينار</p>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/المستقبل.png" alt="شعار جامعة المستقبل الأهلية" />
+                <div class="logo-text">متجر <span>الطب</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="offers.html">العروض</a></li>
+                <li><a href="doctors.html">الأطباء</a></li>
+                <li><a href="tips.html">النصائح</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html" class="active">اتصل بنا</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-icon" id="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="nav-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البانر الرئيسي -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-headset"></i>
+                <span>خدمة العملاء</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">تواصل معنا</span>
+                <span class="title-highlight">في أي وقت</span>
+            </h1>
+            <p class="hero-description">
+                فريق الدعم الفني متاح 24/7 لمساعدتك في جميع استفساراتك
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">ساعة دعم</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">دقيقة استجابة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100</div>
+                    <div class="stat-label">رضا العملاء</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact-form" class="btn btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>أرسل رسالة</span>
+                    <div class="btn-ripple"></div>
+                </a>
+                <a href="tel:+9647802039152" class="btn btn-outline btn-large">
+                    <i class="fas fa-phone"></i>
+                    <span>اتصل الآن</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم طرق التواصل -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">تواصل معنا</span>
+                <h2 class="section-title">طرق التواصل المختلفة</h2>
+                <p class="section-description">اختر الطريقة الأنسب للتواصل معنا</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- بطاقة الموقع -->
+                <div class="contact-card fade-in-up" data-delay="0.1s">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>موقعنا</h3>
+                        <p>طريق حله نجف<br>جامعة المستقبل الأهلية</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://maps.google.com/?q=جامعة+المستقبل+الأهلية+العراق" target="_blank" class="card-btn">
+                            <i class="fas fa-directions"></i>
+                            عرض الموقع
+                        </a>
+                    </div>
+                </div>
+
+                <!-- بطاقة الهاتف -->
+                <div class="contact-card fade-in-up" data-delay="0.2s">
+                    <div class="card-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>اتصل بنا</h3>
+                        <p>+964 780 203 9152<br>+964 771 123 4567</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="tel:+9647802039152" class="card-btn">
+                            <i class="fas fa-phone"></i>
+                            اتصال فوري
+                        </a>
+                    </div>
+                </div>
+
+                <!-- بطاقة الإيميل -->
+                <div class="contact-card fade-in-up" data-delay="0.3s">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>البريد الإلكتروني</h3>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="31585f575e715c54555852505d42455e43541f525e5c">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ee9d8f828b9dae838b8a878d8f829d9a819c8bc08d8183">[email&#160;protected]</a></p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/cdn-cgi/l/email-protection#e0898e868fa08d85848983818c93948f9285ce838f8d" class="card-btn">
+                            <i class="fas fa-envelope"></i>
+                            إرسال رسالة
+                        </a>
+                    </div>
+                </div>
+
+                <!-- بطاقة ساعات العمل -->
+                <div class="contact-card fade-in-up" data-delay="0.4s">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>ساعات العمل</h3>
+                        <p>الأحد - الخميس: 8 ص - 5 م<br>الجمعة - السبت: مغلق</p>
+                    </div>
+                    <div class="card-action">
+                        <div class="status-online">
+                            <i class="fas fa-circle"></i>
+                            متاح الآن
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نموذج الاتصال -->
+    <section class="section contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">أرسل رسالة</span>
+                <h2 class="section-title">املأ النموذج أدناه</h2>
+                <p class="section-description">سنقوم بالرد عليك في أقرب وقت ممكن</p>
+            </div>
+
+            <div class="form-container fade-in-up" data-delay="0.2s">
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label">الاسم الكامل *</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">البريد الإلكتروني *</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="form-label">رقم الهاتف *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" class="form-label">اسم المؤسسة/الشركة</label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="اختياري">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">موضوع الرسالة *</label>
+                        <select id="subject" name="subject" class="form-control" required>
+                            <option value="">اختر موضوع الرسالة</option>
+                            <option value="استفسار عن المنتجات">استفسار عن المنتجات</option>
+                            <option value="طلب عرض سعر">طلب عرض سعر</option>
+                            <option value="الدعم الفني">الدعم الفني</option>
+                            <option value="الشكاوى">الشكاوى</option>
+                            <option value="اقتراحات">اقتراحات</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">الرسالة *</label>
+                        <textarea id="message" name="message" class="form-control" rows="6" placeholder="اكتب رسالتك هنا..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="agree" name="agree" required>
+                            <span class="checkmark"></span>
+                            أوافق على <a href="#" class="form-link">سياسة الخصوصية</a> و <a href="#" class="form-link">شروط الاستخدام</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخريطة -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-subtitle">موقعنا</span>
+                <h2 class="section-title">زرنا في مقرنا الجديد</h2>
+                <p class="section-description">نحن في انتظاركم في مقرنا الجديد</p>
+            </div>
+
+            <div class="map-section">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.8472!2d44.3259!3d31.9507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1557822e8c2d1c0b%3A0x5e8e6b9c8c2b4b8e!2sFuture%20University%2C%20Najaf%2C%20Iraq!5e0!3m2!1sar!2siq!4v1700000000000!5m2!1sar!2siq" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="خريطة موقع جامعة المستقبل الأهلية">
+                    </iframe>
+                </div>
+                
+                <div class="map-info">
+                    <div class="location-details">
+                        <div class="location-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>مقرنا الرئيسي</h3>
+                        </div>
+                        <p class="location-address">طريق حله نجف، جامعة المستقبل الأهلية، العراق</p>
+                        <div class="location-actions">
+                            <a href="https://maps.google.com/?q=جامعة+المستقبل+الأهلية+العراق" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                فتح في خرائط جوجل
+                            </a>
+                            <a href="tel:+9647802039152" class="btn btn-outline">
+                                <i class="fas fa-phone"></i>
+                                اتصل بنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة تسجيل الدخول/إنشاء حساب -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h3 class="auth-modal-title">تسجيل الدخول / إنشاء حساب</h3>
+                <button class="close-auth-modal" id="close-auth-modal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember-me">
+                            <span class="checkmark"></span>
+                            تذكرني
+                        </label>
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-name" class="form-label">الاسم الكامل</label>
+                        <input type="text" id="register-name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone" class="form-label">رقم الهاتف</label>
+                        <input type="tel" id="register-phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">كلمة المرور</label>
+                        <input type="password" id="register-password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" class="form-label">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="agree-terms" required>
+                            <span class="checkmark"></span>
+                            أوافق على <a href="#">الشروط والأحكام</a> و <a href="#">سياسة الخصوصية</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-user-plus"></i> إنشاء حساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة التسوق -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">سلة التسوق</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <div class="empty-cart-message" style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cart-total-price">0 دينار</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-credit-card"></i> إتمام الشراء
+            </button>
+        </div>
+    </div>
+
+    <!-- رسالة تنبيه -->
+    <div class="toast" id="toast"></div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="img/المستقبل.png" alt="شعار لمستقبل الأهلية">
+                        <div class="footer-logo-text">متجر الطب</div>
+                    </div>
+                    <p class="footer-about">
+                        نوفر أحدث الأجهزة الطبية بجودة عالية وأسعار تنافسية مع خدمة ما بعد البيع والدعم الفني المميز.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-chevron-left"></i> الأطباء</a></li>
+                        <li><a href="tips.html"><i class="fas fa-chevron-left"></i> النصائح</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المتجر</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> طرق الدفع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الشحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>طريق حله نجف. جامعة المستقبل</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+964 780 203 9152</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae3e4ece5cae7efeee3e9ebe6f9fee5f8efa4e9e5e7">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8 ص - 5 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 متجر الطب العالمي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // تهيئة صفحة الاتصال
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة النموذج
+            initializeContactForm();
+            
+            // تهيئة العدادات
+            animateCounters();
+            
+            // تهيئة التأثيرات البصرية
+            initializeAnimations();
+        });
+
+        // تهيئة نموذج الاتصال
+        function initializeContactForm() {
+            const form = document.querySelector('.contact-form');
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // جمع البيانات
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // عرض رسالة نجاح
+                showNotification('تم إرسال رسالتك بنجاح! سنرد عليك قريباً.', 'success');
+                
+                // إعادة تعيين النموذج
+                this.reset();
+            });
+
+            // إضافة تأثيرات للحقول
+            const inputs = form.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (!this.value) {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+        }
+
+        // تهيئة العدادات المتحركة
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.textContent);
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // دالة العداد المتحرك
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 30);
+        }
+
+        // تهيئة التأثيرات البصرية
+        function initializeAnimations() {
+            // تأثير fade in up للعناصر
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                animationObserver.observe(element);
+            });
+        }
+
+        // عرض الإشعارات
+        function showNotification(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html>

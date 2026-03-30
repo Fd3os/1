@@ -1,0 +1,33 @@
+{
+  "name": "medical-store-tests",
+  "version": "1.0.0",
+  "description": "اختبارات لمتجر الطب العالمي",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "cypress run"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "routes/**/*.js",
+      "middleware/**/*.js",
+      "models/**/*.js",
+      "utils/**/*.js",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["text", "lcov", "html"]
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3",
+    "cypress": "^12.17.4",
+    "mongodb-memory-server": "^8.14.0"
+  }
+}
